@@ -1,0 +1,506 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="Keywords" lang="en-us" CONTENT="iPAQ notes">
+<META NAME="Keywords" lang="se" CONTENT="iPAQ">
+
+<META NAME="description" CONTENT="Gerald Q. Maguire Jr.'s notes on using the HP iPAQ h5550">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2003 G. Q. Maguire Jr.">
+
+
+<TITLE>Gerald Q. Maguire Jr.'s notes on using the HP iPAQ h5550</TITLE>
+</HEAD>
+<Body>
+<!-- &#153;trademark symbol - using UNICODE version &#8482; -->
+
+<h1>Gerald Q. Maguire Jr.'s notes on using the HP iPAQ h5550</h1>
+
+<h2>Hewlett-Packard Company (HP) iPAQ Pocket PC h5550: Specifications</h2>
+
+<p>
+<a href="iPAQ-photos/iPAQ-with-stylus-cropped.gif" ALT="iPAQ with stylus">
+iPAQ Pocket PC h5550 with stylus</a></p>
+<ol>
+<li>Intel&reg; 400 MHz processor with XScale technology (PXA255)</li>
+<li>128 MB SDRAM, 48 MB Flash ROM (of which 17MB is available as a
+File Store -- i.e., retained despite full resets; use the iPAQ Backup
+utility to copy files from the RAM file system to this area)</li>
+<li>integrated Bluetooth&reg; v1.1
+    (using National Semiconductor's LMX9814 Bluetooth&#8482; WPAN Module) and WLAN 802.11b
+    (aka Wi-Fi based on Atmel's USB 11-megabit WLAN Media Access
+    Controller chip <a href="http://www.atmel.com/dyn/resources/prod_documents/1949S.PDF">AT76C503A</a> (built around a ARM7TDMI core)
+    and a front end RF chip from RF Micro Devices; note the MAC address
+    00:02:8A:xx:xx:xx is assigned to Ambit Microsystems (now Hon Hai's Network Systems Group (NSG))
+</li>
+<li>biometric fingerprint reader - based on thermal imaging using Atmel's
+    <a href="http://www.atmel.com/dyn/resources/prod_documents/2150B.pdf">AT77C101B</a> FingerChip&#8482;</li>
+<li><a href="http://www.sdcard.com/">
+    Secure Digital</a> Card slot: Secure Digital (SD),
+    Secure Digital Input/Output (SDIO), and MultiMedia Cards (MMC) support</li>
+<li>Transflective TFT LCD display, 16-bit, 240 x 320
+    resolution, 3.8" diagonal viewable image size</li>
+<li>overlay for pen and touch interface</li>
+<li>audio microphone, speaker, one 3.5 mm stereo headphone jack;
+    driven by an <a href="http://www.handhelds.org/platforms/hp/ipaq-h5xxx/AK4535-MS0135-E-01-03-2002.pdf">
+Asahi Kasei AK4535</a> 16 bit stereo CODEC with
+    headphone/speaker/microphone amplifier
+    </li>
+<li>USB/Serial connectivity</li>
+<li>photosensor for authomatic backlight adjustment</li>
+<li>vibrating alarm</li>
+<li>1250 mAh lithium polymer battery</li>
+<li>size: 13.8 x 83.8 x 16 mm</li>
+<li>weight: ~200g</li>
+<li>case secure by four Torx size 6 screws</li>
+<li>Built by
+<a href="http://www.htc.com.tw/">
+High Tech Computer</a> (HTC) - producer (original design manufacturer) of Pocket PC-based PDAs</li>
+</ol>
+
+<p>The preinstalled OS is <a href="http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/locate/105_5643.html">
+Microsoft&reg; Pocket PC 2003</a>. This OS also seems to be called
+"Windows&reg; Mobile 2003". Examples of using this software - with
+<a href="iPAQ-photos/iPAQ-in-photos.html">lots of screen shots</a>.</p>
+
+<p>Additionally each user has an iPAQ PC Card Expansion Pack Plus -
+which enables them to add a PC Card to the iPAQ. This sleeve can
+accommodate a PC Card type II card slot. The "Plus" aspect refers to
+the hinged clear smoked plastic screen cover and a removable 920 mAh
+"Slim" battery.</p>
+
+<H2>Secure Digital vs. MultiMedia Cards (MMC) support</H2>
+
+<p>SD cards feature a write-protect switch and have support for
+securing data via "Content Protection for Recordable Media
+(CPRM)". This copyright protection technology was developed by 4C
+(IBM&reg;, Intel&reg;, Matsushita&reg;, and Toshiba&reg;).</p>
+
+<h2>Audio</h2>
+<P>The stereo microphone and headphone jack in the iPAQ is 3.5mm.
+To use headsets with 2.5mm connector you need to use an adapter
+(such as the Plantronics Adapter for HP iPAQ Pocket PCs).
+Note that this is actually a combo headphone/mic jack, hence it uses a
+4-position 3.5 mm connector. [Vincenzo Ragone reports that the same
+cable will also work on an Axim x50v.]
+</P>
+
+<p>One can easily make <a href="iPAQ-photos/iPAQ-audio-adapter.html">
+an adaptor for a soundcard compatible headphone/microphone</a>.
+</p>
+
+<h2>Accessories</H2>
+
+<p>The <a href="iPAQ-photos/AC-power-adaptor-with-DC-ataptor-connected-cropped.gif"
+ALT="AC power adaptor with DC adaptor attached">
+AC power adaptor</a> is a 5VDC 2000mA center pin positive polarity
+supply.</p>
+
+<p>The <a href="iPAQ-photos/DC-power-adaptor-cropped.gif" ALT="DC plug adapter">DC plug adapter</a>
+allows you to connect the AC power adaptor
+directly to the iPAQ (i.e., without using the cradle). This adaptor is
+useful when you want to charge the iPAQ and it is failing to charge
+when in the cradle.</p>
+
+<p><a href="iPAQ-photos/iPAQ-sleeve-cropped.gif" ALT="PC Card expansion sleeve">
+PC Card Expansion sleeve</a> - useful for using PC Card (for example a
+wired Ethernet - I have successfully used the sohoware&#8482; Ethernet 16 bit
+PC card)</p>
+
+<p><a href="iPAQ-photos/iPAQ-cradle-cropped.gif" ALT="iPAQ cradle"> 
+Cradle</a> - provides both USB and serial connections. You should
+<b>not</b> connect both serial and USB connections at the same time.
+A view of the
+<a href="iPAQ-photos/iPAQ-in-cradle-cropped.gif" ALT="iPAQ in cradle">
+iPAQ in the cradle</a>.
+</p>
+
+<p>Bottom view of iPAQ</a> showing connectors, audio jack, and reset switch<br>
+<img src="iPAQ-photos/iPAQ-bottom-view-labelled-1.gif"
+      ALT="Bottom view of iPAQ showing connectors, audio jack, and reset switch"> 
+</p>
+
+<table FRAME=border RULES=all CELLSPACING="3" CELLPADDING="10">
+<CAPTION ALIGN=bottom>Pinout of <a href="iPAQ-photos/iPAQ-end-on-view-cropped.gif"
+                      ALT="view of connectors on bottom of iPAQ">22pin connector</a> from
+                      <a href="http://www.gomadic.com/support.html">Gomadic's</a> support page.<br>
+                      V_ADP = AC adapter power in,
+		      TXD is tranmitted data from the iPAQ</CAPTION>
+<TR><TH>Pin</TH><TH>Purpose</TH><TH>Pin</TH><TH>Purpose</TH><TH>Pin</TH><TH>Purpose</TH><TH>Pin</TH><TH>Purpose</TH><TH>Pin</TH><TH>Purpose</TH></TR>
+<TR><TD>1</TD><TD>V_ADP</TD><TD>6</TD><TD>DCD RS232</TD><TD>11</TD><TD>DSR RS232</TD><TD>16</TD><TD>No Connect</TD><TD></TD><TD></TD></TR>
+<TR><TD>2</TD><TD>V_ADP</TD><TD>7</TD><TD>RXD RS232</TD><TD>12</TD><TD>RTS RS232</TD><TD>17</TD><TD>USB Detect</TD><TD></TD><TD></TD></TR>
+<TR><TD>3</TD><TD>V_ADP</TD><TD>8</TD><TD>TXD RS232</TD><TD>13</TD><TD>CTS RS232</TD><TD>18</TD><TD>No Connect</TD><TD>20</TD><TD>No Connect</TD></TR>
+<TR><TD>4</TD><TD>V_ADP</TD><TD>9</TD><TD>DTR RS232</TD><TD>14</TD><TD>RI RS232</TD><TD>19</TD><TD>USB: UDC +</TD><TD>21</TD><TD>USB: UDC -</TD></TR>
+<TR><TD>5</TD><TD>Reserved</TD><TD>10</TD><TD>GND</TD>  <TD>15</TD><TD>GND</TD><TD></TD><TD></TD><TD>22</TD><TD>GND</TD></TR>
+</table>
+
+
+<p>If you are thinking of developing simple accessories, etc. Gomadic sells
+prewired cables, connectors, etc.</P>
+
+<p>If you are thinking about making things which connect to this
+bottom connector, see the excellent web page
+"<a href="http://ecece.com/info/ipaqcradlemod/ipaqcradlemod.html">
+ Compaq iPAQ USB Cradle Charger Modification</a>"
+by Charlie Reverte, January 27th, 2002. This page has a nice closeup
+picture of what the board in the iPAQ cradle looks like. See also a
+similar article about modifying an 
+<a href="http://mypaq.net/projects/3870cradlecharge/">iPAQ 3870</a> cradle.
+</p>
+
+<p><a href="iPAQ-photos/iPAQ-leather-cover-cropped.gif" ALT="leather cover">
+Leather cover for iPAQ</a>.
+iPAQ <a href="iPAQ-photos/iPAQ-in-leather-cover-cropped.gif" ALT="iPAQ in
+leather cover">in such a cover</a>.<br>
+There are also <a href="iPAQ-photos/iPAQ-in-zippered-cover.gif"
+ALT="zippered cover">
+other types of covers</a> available (but we don't have them).</p>
+
+
+<h2>Common functions</h2>
+
+<p>To access files from a samba server via the Internet Explorer, enter:</p>
+<pre>
+file://\\hostname\path\file.xxx
+</pre>
+
+<p>You should see (e.g., using ethereal) this hostname being
+broadcast using NetBIOS datagram service, server message block
+protocol, Mailslot protocol, Microsoft Windows&reg; Browser Protocol in the
+field Host Name.
+</p>
+
+<p>If you have several trees exported from this file server you might
+be able to enter:</p>
+<pre>
+file://\\hostname\
+</pre>
+
+
+<p>If you are successful accessing the samba server, you will be
+prompted for you user name and password.</p>
+
+<h2><a href="http://www.realvnc.com">VNC</a> client or server</h2>
+<p>It is offen useful to use the iPAQ to view a remote desktop
+(i.e. as a vnc client) or to allow a remote vnc client to view the
+iPAQ (i.e., a vnc server).</p>
+
+<ul>
+<li><A HREF="http://www.cs.utah.edu/~midgley/wince/vnc.html">Windows&reg; CE VNC client</A></li>
+<li><A HREF="http://sourceforge.net/projects/wincevncsvr">Windows&reg; CE
+    VNC server</A> (compiles under VC++6)</li>
+</ul>
+
+<p>Another remote control package is Microsoft's
+<a href="http://www.microsoft.com/mobile/pocketpc/downloads/powertoys.asp">Remote
+Display Control for Pocket PC</a> (
+<a href="http://download.microsoft.com/download/5/3/7/5376bdb4-0aec-40df-bb5c-7a4eb4819b25/remotedsp.exe">
+current link as of 20080228</a>)
+ or SnapFiles' link to
+<a href="http://www.snapfiles.com/get/pocketpc/msremotedisplay.html">Remote
+Display Control</a></p> 
+
+
+<h2>FAQ</h2>
+
+<ul>
+<li>Finding the MAC address of the iPAQ; Look in the Asset Viewer.
+    Note the WLAN must be <em>on</em> to see this information</li>
+
+<li>Initial charging problems - If you initially have trouble charging
+    - use the direct power to USB adaptor (marked P/N 253652-B21);
+    rather than putting the iPAQ in the cradle</li>
+
+<li>Reseting the device
+   <ul>
+     <li>Soft Reset: push the reset button in (with the stylus)</li>
+     <li>Hard Reset: Hold the bottom 2 hardware buttons down <b>and</b>
+         press and hold the reset button for 5 seconds; then press the
+         reset button again to power up. [Warning: you will loose your
+         local files, settings, etc. - so be sure to synchronize
+         before doing this to save your files elsewhere.</li>
+   </ul>
+</li>
+
+<li>WLAN problems - if you are unable to get the WLAN to function,
+even when you have assigned it as static interface, check (using
+ethereal or tcpdump) to see if the only packet it emits is of the
+form:
+<pre>
+source MAC: your MAC address
+destination MAC: 01:60:1d:00:01:00
+DSAP: SNAP
+SSAP: SNAP
+</pre>
+<br>
+for example:
+<br>
+<pre>
+01 60 1d 00 01 00 00 02  8a a2 fb 50 00 2e aa aa   .`...... .¢ûP..ªª
+0010  03 00 60 1d 00 01 00 04  4c 75 63 65 6e 74 20 54   ..`..... Lucent T
+0020  65 63 68 6e 6f 6c 6f 67  69 65 73 20 53 74 61 74   echnolog ies Stat
+0030  69 6f 6e 20 41 6e 6e 6f  75 6e 63 65               ion Anno unce    
+</pre>
+<br>
+Check that you have not filtered out other traffic from WLAN devices -
+for example by MAC filtering at your access point.</li>
+
+<li>Also check that you have selected "my ISP" as the network
+connection to use for all applications and that your network card is
+set to use your "work" network. Otherwise you may find that the
+software expects to use a VPN.</li>
+
+
+<LI>If you want to load a new version of the WLAN driver (such as
+<a href="http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/download/20966.html">
+SP27632: HP iPAQ Pocket PC h5400/h5500 Series WLAN Driver Update
+version 3.2.4.133   (19 May 04)</a>
+which you can do from the HP
+<a href="http://h20000.www2.hp.com/bizsupport/TechSupport/Home.jsp?locale=en_US&amp;prodTypeId=215348&amp;prodSeriesId=322916">
+support site</a>
+<a href="http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/locate/105_5643.html">
+http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/locate/105_5643.html</a>.
+Unfortunately you will need to load this to a Windows&reg; machine and
+using ActiveSync&reg; to transfer it over to the iPAQ.</li>
+
+<li>If you have a problem with ActiveSync&reg;
+not wanting to allow the device to repartner under its usual name,
+i.e., you get the error message "The device name is already in
+use. You must enter a different name for your mobile device" - see the
+excellent <a href="http://www.filesaveas.com/pocketpc.html">notes
+about deleting a device partnership</a></li>
+
+<li>If you are using GPRS or want to use an SDIO camera or Socket scanner,
+you might want to install a new ROM image, such as
+<a href="http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/download/20669.html">
+SP27674: HP iPAQ Pocket PC h5500 Series ROM Update version 1.10 (7 Apr 04)</a>
+(note: it is a huge 18.2MB file). If you do install a new ROM image
+follow the directions carefully or you will render the device
+inoperative. See also the the list of BIOS/Device/... 
+<a href="http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareIndex.jsp?lang=en&cc=us&prodNameId=382405&prodTypeId=215348&prodSeriesId=322916&swLang=8&taskId=135&swEnvOID=2008#11395">updates</a>.
+  <ul>
+    <li>If you have installed the new ROM, you can install the WPA
+        support via
+	<!-- formerly "http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/download/20968.html" -->
+        <a href="http://h20000.www2.hp.com/bizsupport/TechSupport/SoftwareDescription.jsp?lang=en&cc=us&prodTypeId=0&prodSeriesId=322916&prodNameId=306698&swItem=PSG_I20968-105261&swEnvOid=2008&swLang=8&taskId=135&mode=3">
+         HP iPAQ Pocket PC h5500 Series Wireless LAN Firmware Update with WPA Support
+         version 1.103.5.164   (19 May 04)</a>
+        and
+        <a href="http://h18007.www1.hp.com/support/files/HandheldiPAQ/us/download/20969.html"> 	
+         HP iPAQ Pocket PC h5500 Series Wireless LAN Driver Update with WPA Support
+         version 4.3.5.414   (19 May 04)</a>
+    </li>
+  </ul>
+
+<li>If you have ROM version 1.00.xx and find that your iPAQ is
+powering off, because you have only been using the control button and
+not touching the screen, then upgrade to ROM version 1.10.xx (
+<a href="http://h20000.www2.hp.com/bizsupport/TechSupport/Document.jsp?locale=en_US&taskId=110&prodSeriesId=322916&prodTypeId=215348&objectID=PSD_MH040518_CW01">details</a>).</li>
+
+<li>For HP's <a href="http://h20000.www2.hp.com/bizsupport/TechSupport/DocumentIndex.jsp?contentType=SupportFAQ&locale=en_US&docIndexId=180006&taskId=110&prodTypeId=215348&prodSeriesId=322916">
+FAQ for the 5550</a></li>
+
+<li>For more FAQs see: <a href="http://www.cewindows.net/">http://www.cewindows.net/</a></li>
+
+<li>See also <a href="http://www.pocketpcdn.com/">Pocket PC Developer Network</a></li>
+
+<li>Note that WLAN applications seem to stop working at 15% of the battery power.</li>
+
+<li>Compaq <a href="http://www.ipaqrepair.co.uk/guides/308402-001_rev_us.pdf">iPAQ Battery White Paper</a></li>
+
+<li>Interesting site with <a href="http://www.ipaqrepair.co.uk/store.php?cat_id=25&catname=iPAQ+Accessories">
+replacement parts</a></li>
+
+<li>Werner Heuser's <a href="http://repair4pda.org/">Repair4PDA</a> -
+site for repairing, modifying, etc. PDAs</li>
+
+</ul>
+
+<h2>Other software (source)</h2>
+<ul>
+<li><a href="http://www.pocketputty.net/">PocketPuTTY</a> an ssh client for Pocekt PC</li>
+<li><a href="http://www.rainer-keuchel.de/wince/xfree-wince.html">XFree</a> an X windows server and some applications for Pocekt PC</li>
+
+<li><a href="http://sourceforge.net/projects/openwince/">The openwince
+    project</a> - collects open source software for Windows&reg; CE platform
+    developers</li>
+
+<li><a href="http://sourceforge.net/projects/pocketwarrior/">PocketWarrior
+    PocketPC WiFi Survey tool - Prism card wardriving tool</a></li>
+
+<li><a href="http://www.dotgnu.org/">DotGNU</a>, you may also need to get:
+    <ul>
+        <li><A href="http://www.microsoft.com/downloads/details.aspx?FamilyId=359EA6DA-FC5D-41CC-AC04-7BB50A134556&amp;displaylang=en">
+	    NET Compact Framework 1.0 SP2 Redistributable</a></li>
+        <li>You might also need the appropriate installer</li>
+	<li>Denise Barnes',
+	    <a href="http://msdn.microsoft.com/library/default.asp?url=/library/en-us/dnnetcomp/html/net_vs_netcf.asp">
+	      "Fundamentals of Microsoft&reg; .NET Compact Framework Development for the Microsoft&reg; .NET Framework Developer"</a>
+	    provides a good introduction to .NET</li>
+        <li>You might also find the 
+	    <a href="http://www.microsoft.com/downloads/details.aspx?FamilyId=74473FD6-1DCC-47AA-AB28-6A2B006EDFE9&amp;displaylang=en">
+	      command line shell and some other tools</a> useful</li>
+    </ul></li>
+
+<li><a href="http://sourceforge.net/projects/perlce/">Perl for Winows&reg; CE</a></li>
+
+<li><a href="http://sourceforge.net/projects/myipconfig/">MyIpConfig -
+    shows current IP configuration for multiple network
+    adapters</a></li>
+
+<li><a href="http://sourceforge.net/projects/pocketping/">pocketping - ping utility</a></li>
+
+<li><a href="http://sourceforge.net/projects/psynce/">pSynCE - tool
+for synchronising Windows&reg; CE devices with a Linux host</a></li>
+
+<!-- <li><a href="http://sourceforge.net/projects/pocketgcc/">Pocket GCC</a> for cross platform development</li> -->
+
+<li>Wouter Vanden Hove, 
+<a href="http://www.gutenberg.nl/kim/Members/wouter/object_oriented_programming/report_exercises_final.pdf/switchLanguage?set_language=ar">
+Introduction to C#</a>,  21 November 2003 - a very nice introducetion
+to writing C# code using Anjuta and Mono.</li>
+</ul>
+
+<h2>Powering on the iPAQ</h2>
+
+<P>From <a href="http://msdn.microsoft.com/library/en-us/dnroad/html/road03132002.asp?frame=true"> 
+http://msdn.microsoft.com/library/en-us/dnroad/html/road03132002.asp?frame=true</a></p>
+
+<table>
+<tr><th>Desired action</th><th>Solution</th></tr>
+
+<tr><td>Switch on Pocket PC at given time</td>
+    <td>Set the Alarm Clock to go off at a certain time<br>-or-</br>
+        Use CeRunAppAtTime with a special application that does nothing
+    </td></tr>
+
+<tr><td>Run an application when the Pocket PC is switched on (using
+     the power button)</td>
+    <td>Use CeRunAppAtEvent with an event of NOTIFICATION_EVENT_WAKEUP
+    </td></tr>
+
+<tr><td>Run an application when the Pocket PC is reset (that is, a warm reset)</td>
+    <td>Place a link to your application into the \Windows\Startup directory
+    </td></tr>
+<tr><td>Run an application at a given time, regardless of whether the Pocket PC
+        is switched on or off</td>
+    <td>Use CeRunAppAtTime
+    </td></tr>
+</table>
+
+
+<h2>Commercial software</h2>
+<ul>
+<!-- formerly http://www.geocities.com/lincomatic/software.html -->
+<li><a href="http://www.lincomatic.com/wireless/software.html">PocketDHCP V0.22</a> and some other useful tools</li>
+
+<li>Cambridge Computer Corp.'s <a href="http://www.cam.com/windowsce.html">software for Windows&reg; CE</a>, including:
+   <ul>
+   <li><a href="http://www.cam.com/vxutil_pers.html">vxUtil</a></li>
+   <li><a href="http://www.cam.com/vxftp.html">vxFTP</a></li>
+   <li><A href="http://www.cam.com/vxsniffer.html">vxSniffer</a></li>
+   </ul>
+</li>
+<li>Adobe's <a href="http://www.adobe.com/">Acrobat Reader&reg;</a></li>
+<li><a href="http://www.real.com/">RealPlayer</a>&reg; for Mobile Devices</li>
+<li>Microsoft's <a href="http://www.microsoft.com/windowsmobile/downloads/pocketpc.mspx">downloads</a>
+    for the Pocket PC</li>
+</ul>
+
+<H2>Linux</H2>
+
+<p><a href="http://www.handhelds.org/">Handhelds.org</a> has ported
+linux to the iPAQ and some people at KTH has run this
+software. Including <a href="www.minisip.org">minisip</a>. <em>Before you
+put linux on, be sure to save the bits of the original ROM - so that
+you can put them back before you return your iPAQ</em>.</p>
+
+<p><a href="http://synce.sourceforge.net/synce/">SynCE</a>
+    is an open source synchronization solution between Linux Desktops
+    and Windows&reg; CE clients</P>
+
+<p>Some <a href="http://www-2.cs.cmu.edu/~awb/e105/unix_casio.html">
+   notes</a> from  Alan W Black (author of the Festival speech
+   synthesis program) about running programs on a WinCE device when you don't
+   have a Windows&reg; system to connect it to</p>
+
+<h2>Freeware</h2>
+<ul>
+<li><a href="http://www.freewareppc.com/">http://www.freewareppc.com/</a></li>
+</ul>
+
+<h2>Accessories</h2>
+
+<p><A HREF="http://www.navmanusa.com/land/gps3450/index.html">Navman's
+GPS 3450 iPAQ sleeve</a> or <A HREF="http://www.navmanusa.com/land/gps4400/index.html">Navman's GPS
+4400 Wireless</a> - Bluetooth-enabled GPS device. See also 
+<A HREF="">Pocket GPS Portable Navigator</a> in CompactFlash format
+and <A HREF="http://www.pharosgps.com/products/bluetooth/PT200.htm">Pharos Bluetooth Pocket GPS Navigator</a></P>
+
+<h2>Reviews and other sources of information</h2>
+<P>Li Wei's <a href="http://www.dsv.su.se/~liwei/iPAQ_Tut/">iPAQ
+Tutorial</a> for KTH/DSV students.</p>
+
+<p>Alisa Devlic has produced a set of instructions on how to develop
+<a href="http://web.it.kth.se/~devlic/instructions.html">GPS
+applications in .NET Compact Framework and deploy them on
+IPAQ</a>. She has used <a href="http://franson.com/gpstools/">Franson GpsTools</a>.</p>
+
+<p>AdamaDBrown's <a href="http://www.bargainpda.com/reviews/default.asp?reviewID=217">iPaq
+5550 and iPaq 5555 Review</a>(8/24/2003) and
+Lisa Gade's <a href="http://www.pdabuyersguide.com/ipaq5555.htm">
+HP iPAQ 5550 Pocket PC 2003 with 400 MHz XScale Processor</a>, posted Sept. 7th, 2003.</p>
+
+<p>Pravir Chawdhry send some <a href="ipaq-notes-from-Pravir_Chawdhry.html">notes on 2005.11.29</a></p>
+
+<p>Toshiba makes several PC Card Hard Drives: 2 and 5 gig PCMCIA card
+drives; which could be used in the PC Card Expansion Pack.</p>
+
+<p><a href="http://www.ipaqabilities.com/index.php">http://www.ipaqabilities.com/</a></p>
+
+<h2>Virus/Worm/... attacks</h2>
+
+<p>The first Trojan horse has appeared: Backdoor.WinCE.Brador.a is a utility
+which installs it self as SVCHOST.EXE in the following folder:</p>
+<pre>
+      &lt;Root folder&gt;\Windows\Startup
+</pre>
+<p>Thus it is automatic executed at every system startup.
+A description of its behavior, messages, ports used, etc. is
+<a href="http://www.trendmicro.com/vinfo/virusencyclo/default5.asp?VName=WINCE_BRADOR.A">detailed
+available</a> - see <a href="http://vil.mcafeesecurity.com/vil/content/v_127420.htm">also</a>.
+</p>
+
+
+
+<hr>
+<h2><A NAME="Disclaimer">Offical disclaimer</A> required by KTH central administration
+<A HREF="http://www.kth.se/web/disclaimer.html">[disclaimer]</A></H2>
+
+<P LANG="se">Detta &auml;r en personlig hemsida och &aring;sikter framf&ouml;rda
+h&auml;r eller i tillhandah&aring;llna l&auml;nkar representerar
+inte KTH.</p>
+
+<P>This is a personal homepage. Opinions expressed here or implied by links
+provided, do not represent the official views of KTH.</P>
+
+<p>In addition to the usual disclaimer: This page is an independent
+(publication) and is not affiliated with, nor has it been authorized,
+sponsored, or otherwise approved by anyone. The trademarks and
+registered trademarks are the properties of their respective owners.</p>
+
+<ADDRESS>
+For information contact <a href="mailto:maguire@kth.se">maguire@kth.se</a><br>
+Latest update 10 November 2008, small fix 22 January 2015<BR>
+
+&copy; 2003, 2004, 2005, 2006, 2007, 2008, 2015 <A HREF="http://people.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/IMIT
+</ADDRESS>
+
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+</BODY>
+</HTML>

@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="Keywords" lang="en-us" CONTENT="notes regarding various VIA Technology computers">
+<META NAME="Keywords" lang="se" CONTENT="VIA Technology - anteckning">
+
+<META NAME="description" CONTENT="notes regarding various VIA Technology computers">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2009 G. Q. Maguire Jr.">
+
+
+<TITLE>Miscellaneous notes regarding various VIA Technology computers - thought to be useful by Gerald Q. "Chip" Maguire Jr.</TITLE>
+</HEAD>
+<Body>
+<H1>Miscellaneous notes regarding various VIA Technology computers
+- thought to be useful by Gerald Q. "Chip" Maguire Jr.</H1>
+
+<H2>CX700</H2>
+
+<h3>OpenSUSE 11.1</h3>
+<P>The default VESA driver works well, but to utilize the CX700-M2
+Unichrome PRO graphics chip requires using OpenChrome
+(http://www.openchrome.org/) driver - in /etc/X11/xorg.conf in the Section "Device" specify</P>
+<pre>Driver       "openchrome"</pre>
+
+
+<H2>VIA ARTiGO A2000 Barebone Storage Server (ARTiGO A2000)</H2>
+
+<p>It is based around a 1.5 GHz VIA C7-D processor and their VX800
+chipset. It has room for two 3.5 inch SATA II drives, a DDR2 SO-DIMM
+of upto 2GB.</p>
+
+
+<h3>Instruction sheet</h3>
+
+<p>The A and B drive labels on the instruction sheet - should be
+swapped. The lower drive (labelled "B" in the diagram) is actually the
+0th SATA interface.</p>
+
+<h3>OpenSUSE 11.1</h3>
+
+<h3>Installing OpenSUSE 11.1 via PXE install</h3>
+
+<p>I followed the instructions at <a href="http://en.opensuse.org/SuSE_install_with_PXE_boot">
+http://en.opensuse.org/SuSE_install_with_PXE_boot</a>.</p>
+
+<p>Configure a tftp server with the following in the /srv/tftp/tftpboot</p>
+<pre>
+total 24456
+    4 drwxr-xr-x 3 tftpd tftpd     4096 2009-01-04 07:34 .
+    4 drwxr-xr-x 3 root  root      4096 2009-01-04 07:26 ..
+    4 -rw-r--r-- 1 tftpd tftpd       62 2009-01-04 07:34 f1.txt
+21960 -rw-r--r-- 1 tftpd tftpd 22455663 2008-12-28 01:24 initrd
+ 2464 -rw-r--r-- 1 tftpd tftpd  2516816 2008-12-28 01:24 linux
+   16 -rw-r--r-- 1 tftpd tftpd    13336 2009-01-04 07:23 pxelinux.0
+    4 drwxr-xr-x 2 tftpd tftpd     4096 2009-01-04 07:35 pxelinux.cfg
+</pre>
+
+<p>Where the file f1.txt contains:</p>
+
+<pre>
+boot options:
+  install   - install 32 bit i386 openSUSE 11.1
+</pre>
+
+<p> The file pxelinux.cfg contains a file called "default" which contains:</p>
+
+<pre>
+default install
+prompt   1
+timeout  30
+
+DISPLAY f1.txt
+F1 f1.txt
+ 
+# Install i386 Linux
+label install
+  kernel linux
+  append initrd=initrd splash=silent vga=0x314 showopts install=http://download.opensuse.org/factory/repo/oss/
+</pre>
+
+<p>You can now boot the above configuration using the VIA Networking
+"boot drive". Note that you need to set the boot (via BIOS) to use
+"VIA Networking" - this will probably require that you scroll to this
+entry (I missed it the first time as this item did not show up on the
+screen - without scrolling).</p>
+
+<p>OpenSuSE 11.1 runs on it with the manual addition of OpenChrome as
+a new X11 driver (http://www.openchrome.org/). (Note that the driver
+for the VX800 is supposed to be in the next release (2.6.28) of the
+kernel, but is not in the 2.6.27.8-1-pae kernel.)</p>
+
+<p>I have request that VIA include the ethernet MAC address on the
+outside of the box, so that it would be easy to sent up the bootp
+server to give the device an address and to do the PXE installation.
+
+The dhcpd entry that I made looks like:</p>
+<pre>
+  host a2000 {
+    fixed-address 192.1.168.xx;
+    hardware ethernet 00:40:63:xx:xx:xx;
+
+     server-name "192.1.168.yy";
+     next-server 192.1.168.yy;
+     filename "pxelinux.0";
+  }
+</pre>
+
+<p>192.1.168.xx is the IP address to be assigned to the A2000, while
+192.1.168.yy is the IP address of the machine running a tftp server.</p>
+
+
+<h3>Acroread - problem</h3>
+
+<p>One small problem which I have with the A2000 is that when running
+Adobe Acroread and displaying the output via the VX800's VGA ouput
+under SuSE linux 11.1 with the latest OpenChrome driver - the system
+freezes and has to be power cycled at the point where it is about to
+display the page image. Note that it is not a problem with running the
+application as if the X11 graphics are directed to another X11
+windowing system it works successfully. The problem is very
+reproducable.</p>
+
+<P>
+</P>
+
+<hr>
+<h2><A NAME="Disclaimer">Offical disclaimer</A> required by KTH central administration
+<A HREF="http://www.kth.se/web/disclaimer.html">[disclaimer]</A></H2>
+
+<P LANG="se">Detta &auml;r en personlig hemsida och &aring;sikter framf&ouml;rda
+h&auml;r eller i tillhandah&aring;llna l&auml;nkar representerar
+inte KTH.</p>
+
+<P>This is a personal homepage. Opinions expressed here or implied by links
+provided, do not represent the official views of KTH.</P>
+
+<ADDRESS>
+For information contact <a href="mailto:maguire@it.kth.se">maguire@kth.se</a><br>
+Latest updates 4 February 2009<BR>
+
+&copy; 2009 <A HREF="http://www.it.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/IMIT
+</ADDRESS>
+
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+
+</BODY>
+</HTML>

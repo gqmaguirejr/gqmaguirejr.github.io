@@ -1,0 +1,330 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html>
+  <head>
+    <title>SA-1100 Memory Map for Badge3</title>
+  </head>
+
+  <body>
+      <h1>SA-1100 Memory Map for Badge3</h1>
+
+<table border=2>
+<TR><TH>Address</TH><TH>Purpose</TH><TH>Size</TH><TH>Usage</TH></TR>
+<TR BGCOLOR="#FFFFFF" NOSAVE><TD>0x0000 0000</TD><TD ALIGN=CENTER COLSPAN="3" NOSAVE><FONT COLOR="#FF0000" SIZE=+2>Flash + Static Memory</FONT></TR>
+<TR><TD>0x0000 0000</TD><TD>Static Bank Select 0</TD><TD>(128 Mbyte)<br>1 MByte available</TD><TD>Flash Memory<br>16 bits wide</TD></TR>
+									
+<TR><TD>0x0800 0000</TD><TD>Static Bank Select 1</TD><TD>(128 Mbyte)<br>1 MByte
+	  available </TD><TD>Static Memory SRAM<br>32 bits wide</TD></TR>
+<TR><TD>0x1000 0000</TD><TD>Static Bank Select 2</TD><TD>(128 Mbyte)</TD><TD>unused</TD></TR>
+<TR><TD>0x1800 0000</TD><TD>Static Bank Select 3</TD><TD>(128 Mbyte)</TD><TD>unused</TD></TR>
+
+<TR BGCOLOR="#FFFFFF" NOSAVE><TD>0x2000 0000</TD><TD ALIGN=CENTER COLSPAN="3" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+2>PCMCIA space</FONT></TR>
+
+<TR><TD>0x2000 0000</TD><TD>PCMCIA Socket 0 space</TD><TD>256 Mbytes</TD><TD>PCMCIA Interface</TD></TR>
+<TR><TD>0x2000 0000</TD><TD>Socket 0 I/O Space</TR>
+<TR><TD>0x2400 0000</TD><TD>Socket 0 Reserved</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>0x2800 0000</TD><TD>Socket 0 Attribute Space</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>0x2C00 0000</TD><TD>Socket 0 Memory Space</TD><TD></TD><TD></TD><TD></TD></TR>
+
+<TR><TD>0x3000 0000</TD><TD>PCMCIA Socket 1 Space</TD><TD>256 Mbyte</TD><TD>PCMCIA Interface</TD></TR>
+<TR><TD>0x3000 0000</TD><TD>Socket 1 I/O Space</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>0x3400 0000</TD><TD>Socket 1 Reserved</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>0x3800 0000</TD><TD>Socket 1 Attribute Space</TD><TD></TD><TD></TD><TD></TD></TR>
+<TR><TD>0x3C00 0000</TD><TD>Socket 1 Memory Space</TD><TD></TD><TD></TD><TD></TD></TR>
+
+<TR BGCOLOR="#FFFFFF" NOSAVE><TD>0x4000 0000</TD><TD ALIGN=CENTER COLSPAN="3" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+2>Reserved</FONT></TD></TR>
+<TR><TD>0x4000 0000..0x7FFF FFFF<TD>Reserved</TD><TD>1 Gbyte</TD>
+<TD>Accessing this reserved space results in a Data Abort Exception</TD></TR>
+		   
+<TR BGCOLOR="#FFFFFF" NOSAVE><TD>0x8000 0000</TD><TD ALIGN=CENTER COLSPAN="3" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+2>Peripheral Module Registers</FONT> (1 Gbyte - Internal Registers)</TD></TR>
+<TR><TD></TD><TD COLSPAN="3">
+<FONT COLOR="#0000FF" SIZE=+1>Serial Port 0 USB Device Controller (UDC)</FONT></TD></TR>
+<TR><TD>0x8000 0000</TD><TD COLSPAN="3">UDCCR == UDC Control Register</TD></TR>
+<TR><TD>0x8000 0004</TD><TD COLSPAN="3">UDCAR == UDC Address Register</TD></TR>
+<TR><TD>0x8000 0008</TD><TD COLSPAN="3">UDCOMP == UDC OUT Max Packet Register</TD></TR>
+<TR><TD>0x8000 000C</TD><TD COLSPAN="3">UDCIMP == UDC IN Max Packet Register</TD></TR>
+<TR><TD>0x8000 0010</TD><TD COLSPAN="3">UDCCS0 == UDC Endpoint 0 Control/Status Register</TD></TR>
+<TR><TD>0x8000 0014</TD><TD COLSPAN="3">UDCCS1 == UDC Endpoint 1 Control/Status Register</TD></TR>
+<TR><TD>0x8000 0018</TD><TD COLSPAN="3">UDCCS2 == UDC Endpoint 2 Control/Status Register</TD></TR>
+<TR><TD>0x8000 001C</TD><TD COLSPAN="3">UDCD0 == UDC Endpoint 0 Data Register</TD></TR>
+<TR><TD>0x8000 0020</TD><TD COLSPAN="3">UDCWC == UDC Endpoint 0 Write Count Register</TD></TR>
+<TR><TD>0x8000 0024</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8000 0028</TD><TD COLSPAN="3">UDCDR == UDC Data Register</TD></TR>
+<TR><TD>0x8000 0028</TD><TD COLSPAN="3">Serial port 0	UDC Transmit  0x80000A 0000</TD></TR>
+<TR><TD>0x8000 0028</TD><TD COLSPAN="3">UDC Receive   0x80000A 0001</TD></TR>
+<TR><TD>0x8000 002C</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8000 0030</TD><TD COLSPAN="3">UDCSR == UDC Status/Interrupt Register</TD></TR>
+
+<TR><TD></TD><TD COLSPAN="3"><FONT COLOR="#0000FF" SIZE=+1>Serial Port 1		UART</FONT></TD></TR>
+<TR><TD>0x8001 0000</TD><TD COLSPAN="3">UTCR0 == UART Control Register 0</TD></TR>
+<TR><TD>0x8001 0004</TD><TD COLSPAN="3">UTCR1 == UART Control Register 1</TD></TR>
+<TR><TD>0x8001 0008</TD><TD COLSPAN="3">UTCR2 == UART Control Register 2</TD></TR>
+<TR><TD>0x8001 000C</TD><TD COLSPAN="3">UTCR3 == UART Control Register 3</TD></TR>
+<TR><TD>0x8001 0010</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8001 0014</TD><TD COLSPAN="3">UTDR === UART Data Register</TD></TR>
+<TR><TD>0x8001 0014</TD><TD COLSPAN="3">UART Transmit	0x804005 0100</TD></TR>
+<TR><TD>0x8001 0014</TD><TD COLSPAN="3">UART Receive	0x804005 0101</TD></TR>
+<TR><TD>0x8001 0018</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8001 001C</TD><TD COLSPAN="3">UTSR0 == UART Status Register 0</TD></TR>
+<TR><TD>0x8001 0020</TD><TD COLSPAN="3">UTSR1 == UART Status Register 1</TD></TR>
+<TR><TD>0x8001 0024..0x8001 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD></TD><TD COLSPAN=3"><FONT COLOR="#0000FF" SIZE=+1>SDLC</FONT></TD></TR>
+<TR><TD>0x8002 0060</TD><TD COLSPAN="3">SDCR0 == SDLC Control Register 0</TD></TR>
+<TR><TD>0x8002 0064</TD><TD COLSPAN="3">SDCR1 == SDLC Control Register 1</TD></TR>
+<TR><TD>0x8002 0068</TD><TD COLSPAN="3">SDCR2 == SDLC Control Register 2</TD></TR>
+<TR><TD>0x8002 006C</TD><TD COLSPAN="3">SDCR3 == SDLC Control Register 3</TD></TR>
+<TR><TD>0x8002 0070</TD><TD COLSPAN="3">SDCR4 == SDLC Control Register 4</TD></TR>
+<TR><TD>0x8002 0074</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8002 0078</TD><TD COLSPAN="3">SDDR == SDLC Data Register</TD></TR>
+<TR><TD>0x8002 0078</TD><TD COLSPAN="3">Serial port 1	SDLC Transmit	0x80801E 0010</TD></TR>
+<TR><TD>0x8002 0078</TD><TD COLSPAN="3">SDLC Receive	0x80801E 0011</TD></TR>
+<TR><TD>0x8002 007C</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8002 0080</TD><TD COLSPAN="3">SDSR0 == SDLC Status Register 0</TD></TR>
+<TR><TD>0x8002 0084</TD><TD COLSPAN="3">SDSR1 == SDLC Status Register 1</TD></TR>
+<TR><TD>0x8002 0088..0x8002 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD></TD><TD COLSPAN="3"><FONT COLOR="#0000FF" SIZE=+1>Serial Port 2 Infrared Communications Port (ICP) UART</FONT></TD></TR> 
+<TR><TD>0x8003 0000</TD><TD COLSPAN="3">UTCR0 == UART Control Register 0</TD></TR>
+<TR><TD>0x8003 0004</TD><TD COLSPAN="3">UTCR1 == UART Control Register 1</TD></TR>
+<TR><TD>0x8003 0008</TD><TD COLSPAN="3">UTCR2 == UART Control Register 2</TD></TR>
+<TR><TD>0x8003 000C</TD><TD COLSPAN="3">UTCR3 == UART Control Register 3</TD></TR>
+<TR><TD>0x8003 0010</TD><TD COLSPAN="3">UTCR4 == UART Control Register 4</TD></TR>
+<TR><TD>0x8003 0014</TD><TD COLSPAN="3">UART Transmit	0x80C005 0110</TD></TR>
+<TR><TD>0x8003 0014</TD><TD COLSPAN="3">UART Receive	0x80C005 0111</TD></TR>
+<TR><TD>0x8003 0018</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8003 001C</TD><TD COLSPAN="3">UTSR0 == UART Status Register 0</TD></TR>
+<TR><TD>0x8003 0020</TD><TD COLSPAN="3">UTSR1 == UART Status Register 1</TD></TR>
+<TR><TD>0x8003 0024..0x8003 005C</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0x8004 0000</TD><TD  COLSPAN="3">high speed serial to parallel (HSSP) [for 4.0 Mbit/s]</TD></TR>
+<TR><TD>0x8004 0060</TD><TD COLSPAN="3">HSCR0 == HSSP Control Register 0</TD></TR>
+<TR><TD>0x8004 0064</TD><TD COLSPAN="3">HSCR1 == HSSP Control Register 1</TD></TR>
+<TR><TD>0x8004 0068</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8004 006C</TD><TD COLSPAN="3">HSSP Transmit	0x81001B 0110</TD></TR>
+<TR><TD>0x8004 006C</TD><TD COLSPAN="3">HSSP Receive	0x81001B 0111</TD></TR>
+<TR><TD>0x8004 006C</TD><TD COLSPAN="3">HSDR == HSSP Data Register</TD></TR>
+<TR><TD>0x8004 0070</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8004 0074</TD><TD COLSPAN="3">HSSR0 == HSSP Status Register 0</TD></TR>
+<TR><TD>0x8004 0078</TD><TD COLSPAN="3">HSSR1 == HSSP Status Register 1</TD></TR>
+<TR><TD>0x8004 007C..0x8004 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD></TD><TD  COLSPAN="3"><FONT COLOR="#0000FF" SIZE=+1>Serial Port 3 - UART</FONT></TD></TR>
+<TR><TD>0x8005 0000</TD><TD COLSPAN="3">UTCR0 == UART Control Register 0</TD></TR>
+<TR><TD>0x8005 0004</TD><TD COLSPAN="3">UTCR1 == UART Control Register 1</TD></TR>
+<TR><TD>0x8005 0008</TD><TD COLSPAN="3">UTCR2 == UART Control Register 2</TD></TR>
+<TR><TD>0x8005 000C</TD><TD COLSPAN="3">UTCR3 == UART Control Register 3</TD></TR>
+<TR><TD>0x8005 0010</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8005 0014</TD><TD COLSPAN="3">UTDR == UART Data Register</TD></TR>
+<TR><TD>0x8005 0014</TD><TD COLSPAN="3">UART Transmit	0x814005 1000</TD></TR>
+<TR><TD>0x8005 0014</TD><TD COLSPAN="3">UART Receive	0x814005 1001</TD></TR>
+<TR><TD>0x8005 0018</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8005 001C</TD><TD COLSPAN="3">UTSR0 == UART Status Register 0</TD></TR>
+<TR><TD>0x8005 0020</TD><TD COLSPAN="3">UTSR1 == UART Status Register 1</TD></TR>
+<TR><TD>0x8005 0024..0x8005 FFFF</TD><TD  COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD></TD><TD  COLSPAN="3"><FONT COLOR="#0000FF" SIZE=+1>Serial Port 4 (MPC multimedia communications port (MCP)<br>			interface to the Philips UCB1100, UCB1200, and Crystal CS4271 codecs)</FONT></TD></TR>
+<TR><TD>0x8006 0000</TD><TD COLSPAN="3">MCCR0 == MCP Control Register 0</TD></TR>
+<TR><TD>0x8006 0004</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8006 0008</TD><TD COLSPAN="3">MCDR0 == MCP Data Register 0</TD></TR>
+<TR><TD>0x8006 0008</TD><TD COLSPAN="3">MCP Transmit (audio)	0x818002 1010</TD></TR>
+<TR><TD>0x8006 0008</TD><TD COLSPAN="3">MCP Receive (audio)	0x818002 1011</TD></TR>
+<TR><TD>0x8006 000C</TD><TD COLSPAN="3">MCDR1 == MCP Data Register 1</TD></TR>
+<TR><TD>0x8006 000C</TD><TD COLSPAN="3">MCP Transmit (telecom)	0x818003 1100</TD></TR>
+<TR><TD>0x8006 000C</TD><TD COLSPAN="3">MCP Receive (telecom)	0x818003 1101</TD></TR>
+<TR><TD>0x8006 0010</TD><TD COLSPAN="3">MCDR2 == MCP Data Register 2</TD></TR>
+<TR><TD>0x8006 0014</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8006 0018</TD><TD COLSPAN="3">MCSR == MCP Status Register</TD></TR>
+<TR><TD>0x8006 001C..0x8006 005C</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0x8007 0000</TD><TD COLSPAN="3">synchronous serial port (SSP)</TD></TR>
+<TR><TD>0x8007 0060</TD><TD COLSPAN="3">SSCR0 == SSP Control Register 0</TD></TR>
+<TR><TD>0x8007 0064</TD><TD COLSPAN="3">SSCR1 == SSP Control Register 1</TD></TR>
+<TR><TD>0x8007 0068</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8007 006C</TD><TD COLSPAN="3">SSDR == SSP Data Register</TD></TR>
+<TR><TD>0x8007 006C</TD><TD COLSPAN="3">SSP Transmit		0x81C01B 1110</TD></TR>
+<TR><TD>0x8007 006C</TD><TD COLSPAN="3">SSP Receive		0x81C01B 1111</TD></TR>
+<TR><TD>0x8007 0070</TD><TD COLSPAN="3">Reserved</TD></TR>
+<TR><TD>0x8007 0074</TD><TD COLSPAN="3">SSSR == SSP Status Register</TD></TR>
+<TR><TD>0x8007 0078..0x8007 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0x9000 0000</TD><TD ALIGN=CENTER COLSPAN="1" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+1>System Control Module Registers</FONT><TD>256 MB</TD><TD></TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>OS Timer Register Locations</FONT></TD></TR>
+<TR><TD>0x9000 0000</TD><TD COLSPAN="3">OSMR[0] == OS Timer Match Registers[3:0]</TD></TR>
+<TR><TD>0x9000 0004</TD><TD COLSPAN="3">OSMR[1]</TD></TR>
+<TR><TD>0x9000 0008</TD><TD COLSPAN="3">OSMR[2]</TD></TR>
+<TR><TD>0x9000 000C</TD><TD COLSPAN="3">OSMR[3]</TD></TR>
+<TR><TD>0x9000 0010</TD><TD COLSPAN="3">OSCR == OS Timer Counter Register</TD></TR>
+<TR><TD>0x9000 0014</TD><TD COLSPAN="3">OSSR == OS Timer Status Register</TD></TR>
+<TR><TD>0x9000 0018</TD><TD COLSPAN="3">OWER == OS Timer Watchdog Enable Register</TD></TR>
+<TR><TD>0x9000 001C</TD><TD COLSPAN="3">OIER == OS Timer Interrupt Enable Register</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Real Time Clock Register Locations</FONT></TD></TR>
+<TR><TD>0x9001 0004</TD><TD COLSPAN="3">RCNR == RTC Count Register</TD></TR>
+<TR><TD>0x9001 0000</TD><TD COLSPAN="3">RTAR == RTC Alarm Register</TD></TR>
+<TR><TD>0x9001 0010</TD><TD COLSPAN="3">RTSR == RTC Status Register</TD></TR>
+<TR><TD>0x9001 0008</TD><TD COLSPAN="3">RTTR == RTC Timer Trim Register</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Power Manager Register Locations</FONT></TD></TR>
+<TR><TD>0x9002 0000</TD><TD COLSPAN="3">PMCR == Power Manager Control Register</TD></TR>
+<TR><TD>0x9002 0004</TD><TD COLSPAN="3">PSSR == Power Manager Sleep Status Register</TD></TR>
+<TR><TD>0x9002 0008</TD><TD COLSPAN="3">PSPR == Power Manager Scratch Pad Register</TD></TR>
+<TR><TD>0x9002 000C</TD><TD COLSPAN="3">PWER == Power Manager Wakeup Enable Register</TD></TR>
+<TR><TD>0x9002 0010</TD><TD COLSPAN="3">PCFR == Power Manager General Configuration Register</TD></TR>
+<TR><TD>0x9002 0014</TD><TD COLSPAN="3">PPCR == Power Manager PLL Configuration Register</TD></TR>
+<TR><TD>0x9002 0018</TD><TD COLSPAN="3">PGSR == Power Manager GPIO Sleep State Register</TD></TR>
+<TR><TD>0x9002 001C</TD><TD COLSPAN="3">POSR == Power Manager Oscillator Status Register</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Reset Controller Register Locations</FONT></TD></TR>
+<TR><TD>0x9003 0000</TD><TD COLSPAN="3">RSRR == Reset Controller Software Reset Register</TD></TR>
+<TR><TD>0x9003 0004</TD><TD COLSPAN="3">RCSR == Reset Controller Status Register</TD></TR>
+<TR><TD>0x9003 0008</TD><TD COLSPAN="3">TUCR == Reserved for Test</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>GPIO registers</FONT></TD></TR>
+<TR><TD>0x9004 0000</TD><TD COLSPAN="3">GPLR == GPIO Pin Level Register</TD></TR>
+<TR><TD>0x9004 0004</TD><TD COLSPAN="3">GPDR == GPIO Pin Direction Register</TD></TR>
+<TR><TD>0x9004 0008</TD><TD COLSPAN="3">GPSR == GPIO Pin Output Set Register</TD></TR>
+<TR><TD>0x9004 000C</TD><TD COLSPAN="3">GPCR == GPIO Pin Output Clear Register</TD></TR>
+<TR><TD>0x9004 0010</TD><TD COLSPAN="3">GRER == GPIO Rising-Edge Detect Register</TD></TR>
+<TR><TD>0x9004 0014</TD><TD COLSPAN="3">GFER == GPIO Falling-Edge Detect Register</TD></TR>
+<TR><TD>0x9004 0018</TD><TD COLSPAN="3">GEDR == GPIO Edge Detect Status Register</TD></TR>
+<TR><TD>0x9004 001C</TD><TD COLSPAN="3">GAFR == GPIO Alternate Function Register</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Interrupt Controller Registers</FONT></TD></TR>
+<TR><TD>0x9005 0000</TD><TD COLSPAN="3">ICIP == Interrupt Controller IRQ Pending Register</TD></TR>
+<TR><TD>0x9005 0004</TD><TD COLSPAN="3">ICMR == Interrupt Controller Mask Register</TD></TR>
+<TR><TD>0x9005 0008</TD><TD COLSPAN="3">ICLR == Interrupt Controller Level Register</TD></TR>
+<TR><TD>0x9005 0010</TD><TD COLSPAN="3">ICFP == Interrupt Controller FIQ Pending Register</TD></TR>
+<TR><TD>0x9005 0020</TD><TD COLSPAN="3">ICPR == Interrupt Controller Pending Register</TD></TR>
+<TR><TD>0x9005 000C</TD><TD COLSPAN="3">ICCR == Interrupt Controller Control Register</TD></TR>
+
+<TR><TD>0x9006 0000</TD><TD><FONT COLOR="#0000FF" SIZE=+1>Peripheral Pin Controller (PPC)</FONT></TD></TR>
+<TR><TD>0x9006 0000</TD><TD COLSPAN="3">PPDR == PPC Pin Direction Register</TD></TR>
+<TR><TD>0x9006 0004</TD><TD COLSPAN="3">PPSR == PPC Pin State Register</TD></TR>
+<TR><TD>0x9006 0008</TD><TD COLSPAN="3">PPAR == PPC Pin Assignment Register</TD></TR>
+<TR><TD>0x9006 000C</TD><TD COLSPAN="3">PSDR == PPC Sleep Mode Pin Direction Register</TD></TR>
+<TR><TD>0x9006 0010</TD><TD COLSPAN="3">PPFR == PPC Pin Flag Register</TD></TR>
+<TR><TD>0x9006 0014..0x9006 FFFF</TD><TD COLSPAN="3">Reserved (but for the two
+addresses below)</TD></TR>
+<TR><TD>0x9006 0028</TD><TD COLSPAN="3">HSCR2 == HSSP Control Register 2</TD></TR>
+<TR><TD>0x9006 0030</TD><TD COLSPAN="3">MCCR1 == MCP Control Register 1</TD></TR>
+<TR><TD>0x9006 0034..0x9006 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0xA000 0000</TD><TD ALIGN=CENTER COLSPAN="1" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+1>Memory and Expansion Registers</FONT><TD>256 MB</TD><TD></TD></TR>
+
+<TR><TD>0xA000 0000</TD><TD COLSPAN="3">MDCNFG == DRAM Configuration Register</TD></TR>
+<TR><TD>0xA000 0004</TD><TD COLSPAN="3">MDCAS0 == DRAM CAS Waveform Shift Register 0</TD></TR>
+<TR><TD>0xA000 0008</TD><TD COLSPAN="3">MDCAS1 == DRAM CAS Waveform Shift Register 1</TD></TR>
+<TR><TD>0xA000 000C</TD><TD COLSPAN="3">MDCAS2 == DRAM CAS Waveform Shift Register 2</TD></TR>
+<TR><TD>0xA000 0010</TD><TD COLSPAN="3">MSC0 == Static Memory Control Register 0</TD></TR>
+<TR><TD>0xA000 0014</TD><TD COLSPAN="3">MSC1 == Static Memory Control Register 1</TD></TR>
+<TR><TD>0xA000 0018</TD><TD COLSPAN="3">MECR == Expansion Bus Configuration Register</TD></TR>
+
+<TR><TD>0xB000 0000</TD><TD ALIGN=CENTER COLSPAN="1" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+1>LCD and DMA Registers</FONT><TD>256 MB</TD><TD></TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>DMA Register List</FONT></TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 0 Registers</FONT></TD></TR>
+<TR><TD>0xB000 0000</TD><TD COLSPAN="3">DDAR0 == DMA Device Address Register</TD></TR>
+<TR><TD>0xB000 0004</TD><TD COLSPAN="3">DCSR0 == DMA Control/Status Register 0 - write ones to set</TD></TR>
+<TR><TD>0xB000 0008</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 000C</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 0010</TD><TD COLSPAN="3">DBSA0 == DMA Buffer A Start Address 0</TD></TR>
+<TR><TD>0xB000 0014</TD><TD COLSPAN="3">DBTA0 == DMA Buffer A Transfer Count 0</TD></TR>
+<TR><TD>0xB000 0018</TD><TD COLSPAN="3">DBSB0 == DMA Buffer B Start Address 0</TD></TR>
+<TR><TD>0xB000 001C</TD><TD COLSPAN="3">DBTB0 == DMA Buffer B Transfer Count 0</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 1 Registers</FONT></TD></TR>
+<TR><TD>0xB000 0020</TD><TD COLSPAN="3">DDAR1 == DMA Device Address Register 1</TD></TR>
+<TR><TD>0xB000 0024</TD><TD COLSPAN="3">DCSR1 == DMA Control/Status Register 1 - write ones to set</TD></TR>
+<TR><TD>0xB000 0028</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 002C</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 0030</TD><TD COLSPAN="3">DBSA1 == DMA Buffer A Start Address 1</TD></TR>
+<TR><TD>0xB000 0034</TD><TD COLSPAN="3">DBTA1 == DMA Buffer A Transfer Count 1</TD></TR>
+<TR><TD>0xB000 0038</TD><TD COLSPAN="3">DBSB1 == DMA Buffer B Start Address 1</TD></TR>
+<TR><TD>0xB000 003C</TD><TD COLSPAN="3">DBTB1 == DMA Buffer B Transfer Count 1</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 2 Registers</FONT></TD></TR>
+<TR><TD>0xB000 0040</TD><TD COLSPAN="3">DDAR2 == DMA Device Address Register 2</TD></TR>
+<TR><TD>0xB000 0044</TD><TD COLSPAN="3">DCSR2 == DMA Control/Status Register 2 - write ones to set</TD></TR>
+<TR><TD>0xB000 0048</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 004C</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 0050</TD><TD COLSPAN="3">DBSA2 == DMA Buffer A Start Address 2</TD></TR>
+<TR><TD>0xB000 0054</TD><TD COLSPAN="3">DBTA2 == DMA Buffer A Transfer Count 2</TD></TR>
+<TR><TD>0xB000 0058</TD><TD COLSPAN="3">DBSB2 == DMA Buffer B Start Address 2</TD></TR>
+<TR><TD>0xB000 005C</TD><TD COLSPAN="3">DBTB2 == DMA Buffer B Transfer Count 2</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 3 Registers</FONT></TD></TR>
+<TR><TD>0xB000 0060</TD><TD COLSPAN="3">DDAR3 == DMA Device Address Register 3</TD></TR>
+<TR><TD>0xB000 0064</TD><TD COLSPAN="3">DCSR3 == DMA Control/Status Register 3 - write ones to set</TD></TR>
+<TR><TD>0xB000 0068</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 006C</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 0070</TD><TD COLSPAN="3">DBSA3 == DMA Buffer A Start Address 3</TD></TR>
+<TR><TD>0xB000 0074</TD><TD COLSPAN="3">DBTA3 == DMA Buffer A Transfer Count 3</TD></TR>
+<TR><TD>0xB000 0078</TD><TD COLSPAN="3">DBSB3 == DMA Buffer B Start Address 3</TD></TR>
+<TR><TD>0xB000 007C</TD><TD COLSPAN="3">DBTB3 == DMA Buffer B Transfer Count 3</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 4 Registers</FONT></TD></TR>
+<TR><TD>0xB000 0080</TD><TD COLSPAN="3">DDAR4 == DMA Device Address Register 4</TD></TR>
+<TR><TD>0xB000 0084</TD><TD COLSPAN="3">DCSR4 == DMA Control/Status Register 4 - write ones to set</TD></TR>
+<TR><TD>0xB000 0088</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 008C</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 0090</TD><TD COLSPAN="3">DBSA4 == DMA Buffer A Start Address 4</TD></TR>
+<TR><TD>0xB000 0094</TD><TD COLSPAN="3">DBTA4 == DMA Buffer A Transfer Count 4</TD></TR>
+<TR><TD>0xB000 0098</TD><TD COLSPAN="3">DBSB4 == DMA Buffer B Start Address 4</TD></TR>
+<TR><TD>0xB000 009C</TD><TD COLSPAN="3">DBTB4 == DMA Buffer B Transfer Count 4</TD></TR>
+
+<TR><TD></TD><TD><FONT COLOR="#0000FF" SIZE=+1>Channel 5 Registers</FONT></TD></TR>
+<TR><TD>0xB000 00A0</TD><TD COLSPAN="3">DDAR5 == DMA Device Address Register 5</TD></TR>
+<TR><TD>0xB000 00A4</TD><TD COLSPAN="3">DCSR5 == DMA Control/Status Register 5 - write ones to set</TD></TR>
+<TR><TD>0xB000 00A8</TD><TD COLSPAN="3">write ones to clear</TD></TR>
+<TR><TD>0xB000 00AC</TD><TD COLSPAN="3">read only</TD></TR>
+<TR><TD>0xB000 00B0</TD><TD COLSPAN="3">DBSA5 == DMA Buffer A Start Address 5</TD></TR>
+<TR><TD>0xB000 00B4</TD><TD COLSPAN="3">DBTA5 == DMA Buffer A Transfer Count 5</TD></TR>
+<TR><TD>0xB000 00B8</TD><TD COLSPAN="3">DBSB5 == DMA Buffer B Start Address 5</TD></TR>
+<TR><TD>0xB000 00BC</TD><TD COLSPAN="3">DBTB5 == DMA Buffer B Transfer Count 5</TD></TR>
+
+<TR><TD><TD COLSPAN="3"><FONT COLOR="#0000FF" SIZE=+1>LCD Controller</FONT></TD></TR>
+<TR><TD>0xB010 0000</TD><TD COLSPAN="3">LCCR0 == LCD Control Register 0</TD></TR>
+<TR><TD>0xB010 0004</TD><TD COLSPAN="3">LCSR ==  LCD Status Register</TD></TR>
+
+<TR><TD>0xB010 0008..0xB010 000C</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0xB010 0010</TD><TD COLSPAN="3">DBAR1 == DMA Channel 1 Base Address Register</TD></TR>
+<TR><TD>0xB010 0014</TD><TD COLSPAN="3">DCAR1 == DMA Channel 1 Current Address Register</TD></TR>
+<TR><TD>0xB010 0018</TD><TD COLSPAN="3">DBAR2 == DMA Channel 2 Base Address Register</TD></TR>
+<TR><TD>0xB010 001C</TD><TD COLSPAN="3">DCAR2 == DMA Channel 2 Current Address Register</TD></TR>
+
+<TR><TD>0xB010 0020</TD><TD COLSPAN="3">LCCR == LCD Controller Control Register 1</TD></TR>
+<TR><TD>0xB010 0024</TD><TD COLSPAN="3">LCCR2 == LCD Controller Control Register 2</TD></TR>
+<TR><TD>0xB010 0028</TD><TD COLSPAN="3">LCCR3 == LCD Controller Control Register 3</TD></TR>
+<TR><TD>0xB010 002C..0xB010 FFFF</TD><TD COLSPAN="3">Reserved</TD></TR>
+
+<TR><TD>0xBFFF FFFF
+<TR BGCOLOR="#FFFFFF" NOSAVE><TD>0xC000 0000</TD><TD ALIGN=CENTER COLSPAN="3" NOSAVE><FONT
+COLOR="#FF0000" SIZE=+2>Dynamic Memory - DRAM</FONT></TR>
+
+<TR><TD>0xC000 0000</TD><TD>DRAM Bank 0</TD><TD>128 Mbyte</TD><TD>unused</TD></TR>
+<TR><TD>0xC800 0000</TD><TD>DRAM Bank 1</TD><TD>128 Mbyte</TD><TD>unused</TD></TR>
+<TR><TD>0xD000 0000</TD><TD>DRAM Bank 2</TD><TD>128 Mbyte</TD><TD>unused</TD></TR>
+<TR><TD>0xD800 0000</TD><TD>DRAM Bank 3</TD><TD>128 Mbyte</TD><TD>unused</TD></TR>
+<TR><TD>0xE000 0000</TD><TD>Zeros Bank</TD><TD>128 Mbyte</TD><TD>Cache Flush replacement data.<br>
+Reads return Zero.</TD></TR>
+<TR><TD>0xE800 0000..0xFFFF FFFF</TD><TD>Reserved</TD><TD>384 MB</TD><TD>Accessing this
+space causes a Data Abort Exception.</TD></TR>
+</table>
+
+<hr>
+<address><a href="mailto:maguire@it.kth.se">Gerald Q. Maguire Jr.</a></address>
+<!-- Created: Mon Apr 20 10:22:42 EDT 1998 -->
+<!-- hhmts start -->
+Last modified: Mon Apr 20 12:51:18 EDT 
+<!-- hhmts end -->
+  </body>
+</html>

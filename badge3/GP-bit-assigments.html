@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<title>SmartBadge General Purpose I/O assigments</title>
+</HEAD>
+<BODY>
+<H1>SmartBadge General Purpose I/O assigments</H1>
+
+<Table border="2">
+<TR><TH>I/O pins<TH>Direction<TH>Signal<TH>Purpose</TR>
+<TR><TD>GP[27]</TD><TD>Input</TD><TD>Sensor IRQ</TD><TD>Interrupt output from UCB1200</TD></TH>
+<TR><TD>GP[26]</TD><TD>Output</TD><TD>IRSD</TD><TD>IRDA transceiver SD</TD></TH>
+<TR><TD>GP[25]</TD><TD>Output</TD><TD>PRESET</TD><TD>PCMCIA Reset</TD></TH>
+<TR><TD>GP[24]</TD><TD>Output</TD><TD>PCMEN5V</TD><TD>enable 5V for PCMCIA (drives SHDN2- on MAX863)</TD></TH>
+<TR><TD>GP[23]</TD><TD>Input</TD><TD>FLSHSTAT</TD><TD>Flash RY-/BY- output [not on Intel chips]</TD></TH>
+<TR><TD>GP[22]</TD><TD>Input</TD><TD>PSKT0STCH~</TD><TD>PCMCIA 0 status change</TD></TH>
+<TR><TD>GP[21]</TD><TD></TD><TD></TD><TD>not connected</TD></TH>
+<TR><TD>GP[20]</TD><TD></TD><TD>UART_SCLK3</TD></TH>
+<TR><TD>GP[19]</TD><TD></TD><TD></TD><TD>not connected</TD></TH>
+<TR><TD>GP[18]</TD><TD></TD><TD>UART_SCLK1</TD></TH>
+<TR><TD>GP[17]</TD><TD></TD><TD>SDLC_AAF</TD></TH>
+<TR><TD>GP[16]</TD><TD></TD><TD>SDLC_SCLK</TD></TH>
+<TR><TD>GP[15]</TD><TD></TD><TD>UART_RXD</TD></TH>
+<TR><TD>GP[14]</TD><TD></TD><TD>UART_TXD</TD></TH>
+<TR><TD>GP[13]</TD><TD></TD><TD>PSKT1INT~</TD><TD>PCMCIA 1 interrupt	JP4 pin 36</TD></TH>
+<TR><TD>GP[12]</TD><TD></TD><TD>PSKT1CD~</TD><TD>PCMCIA 1 Card Detect 	JP4 pin 37</TD></TH>
+<TR><TD>GP[11]</TD><TD></TD><TD>PSKT0INT~</TD><TD>PCMCIA 0 interrupt (PCMIREQ~)</TD></TH>
+<TR><TD>GP[10]</TD><TD></TD><TD>PSKT0CD~</TD><TD>PCMCIA 0 Card Detect (PCMCD1~ or PCMCD1~)</TD></TH>
+<TR><TD>GP[9]</TD><TD></TD><TD></TD><TD>JP5 pin 21</TD></TH>
+<TR><TD>GP[8]</TD><TD></TD><TD></TD><TD>JP5 pin 20</TD></TH>
+<TR><TD>GP[7]</TD><TD></TD><TD></TD><TD>JP5 pin 19</TD></TH>
+<TR><TD>GP[6]</TD><TD></TD><TD></TD><TD>JP5 pin 18</TD></TH>
+<TR><TD>GP[5]</TD><TD></TD><TD></TD><TD>JP5 pin 17</TD></TH>
+<TR><TD>GP[4]</TD><TD></TD><TD></TD><TD>JP5 pin 16</TD></TH>
+<TR><TD>GP[3]</TD><TD></TD><TD></TD><TD>JP5 pin 15</TD></TH>
+<TR><TD>GP[2]</TD><TD></TD><TD></TD><TD>JP5 pin 14</TD></TH>
+<TR><TD>GP[1]</TD><TD>Output</TD><TDF>LSHWP~</TD><TD>Flash Write Protext (WP)</TD></TH>
+<TR><TD>GP[0]</TD><TD>Output</TD><TD>FLSHRP~</TD><TD>Flash Reset/Deep Power-down (RP)</TD></TH>
+</table>
+
+<P>WP =<br>
+	locking and unlocking the two lockable parameter blocks<br>
+	logic low, the lockable blocks are locked,<br>
+	logic high, the lockable blocks are unlocked</P>
+
+
+<P>RP = <br>				
+   logic low, the device is in reset/deep power-down mode<br>
+   logic high, the device is in standard operation.<br>
+   transitions from logic-low to logic-high,the device resets all blocks to locked and defaults to the
+   read array mode.</P>
+
+<UL>
+<LI>981002 - created</LI>
+</UL>
+
+<ADDRESS>
+<A href="http://www.it.kth.se/~maguire/">G.Q.Maguire Jr.</A> (<a href="mailto:maguire@it.kth.se">maguire@it.kth.se</A>)<br>
+<!-- hhmts start -->
+Last modified: 2003.02.27
+<!-- hhmts end -->
+</ADDRESS>
+</BODY>
+</html>

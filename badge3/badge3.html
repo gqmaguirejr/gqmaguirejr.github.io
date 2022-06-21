@@ -1,0 +1,528 @@
+<TITLE>SmartBadge III</TITLE>
+<H1>
+SmartBadge III
+</H1>
+
+<P>The third version of the SmartBadge builds on the lessons learned
+from the two earlier iterations which have been used in classes at
+KTH: Mobile Personal Communications module of the Telecommunications
+"finger" course during Spring 1997) and University of Wollongong
+(during Summer 1997).
+</P>
+
+<P>See figures 1 and 2 of the article: Mark T. Smith, "SmartCards:
+Integrating for Portable Complexity", IEEE Computer, August 1998,
+pp. 110-112, and 115.</P>
+
+
+<P>A preview of what this year's looks like
+(<A HREF="badgeart.pdf">PDF</A>).</P>
+
+<P>The bare board before parts are mounted on it
+(<A HREF="badge3-c.jpg">2481K JPEG</A>). It is a 10 layer printed circuit
+board with laser drilled holes.</P>
+
+<P>The first badge was operational on 16 April 1998, with a program
+loaded via the TAP Master and setting a GPIO output.</P>
+
+<P>Scan of the first badge (running on a bench power supply - via the
+red and black wires)
+<A HREF="badge3b.tif">Front (370K TIFF image)</A> and
+<A HREF="badge3a.tif">Back (372K TIFF image)</A>.
+Although this badge shows two 50 pin
+expansion connectors on the back (which were useful for testing the board), the
+connections are not attach (but can be) to the rest of the boards.
+The badge is 63 x 114 x 14 mm.</P>
+
+<P>A <A HREF="HP-comdex.gif">view of the packaged badge</A>
+(<A HREF="PROTO_HA.JPG"> 337K JPEG</A>) as shown by HP at Comdex'98,
+November 16-20 1998.</P>
+
+<P>The basic system consists of a Intel (formerly Digital) StrongArm-1100 processor,
+sensors, some built-in communication links, and a PCMCIA
+interface.</P>
+
+<P>A <A HREF="memorymap.html">memory map for the badge</A> shows where
+the Flash and SRAM are mapped as well as where each of the devices is mapped.</P>
+
+<H2>Schematics</H2>
+
+<UL>
+<LI>Processor <A HREF="processor.pdf">(PDF)</A></LI>
+<LI>Memory <A HREF="memory.pdf">(PDF)</A></LI>
+<LI>Sensors <A HREF="sensors.pdf">(PDF)</A></LI>
+<LI>Power <A HREF="power.pdf">(PDF)</A></LI>
+</UL>
+
+
+<h2>Parts and reason for their selection</H2>
+
+<UL>
+<LI><A HREF="http://developer.intel.com/design/pca/applicationsprocessors/index.htm">Intel
+SA-1100 processor</A>
+<br>
+	<UL>
+        <li>lots of general purpose and I/O interfaces, including PCMCIA,
+	a serial port (channel 2) for IrDA 1.0, UART(serial port 3), and CODEC (serial port 4)</LI>
+</LI>
+	<LI>low voltage operation (suitable for batteries);</LI>
+	<LI>Good power management - as we need to conserve power to
+            allow for extended battery operation;</LI>
+	<LI>sufficient processing power to do the local processing that we need; and </LI>
+	<LI>processor core is ARM based and plenty of tools exist.</LI>
+	</UL></LI>
+
+
+<LI>Philips Semiconductor UCB 1200 - Advanced modem/audio analog
+front-end
+<br>
+	<UL>
+	<LI>provides the audio input and output functions which we wanted,</LI>
+	<LI>provides plently of A/D inputs for use with the various
+	    sensors which we will use,</LI>
+	<LI>glueless interface to the SA-1100</LI>
+	</UL>
+
+<P>Some information about using this device to digitize sensor data is
+available from one of the <A HREF="http://www.it.kth.se/~e94_jlu/badge/ADC-usage.html">groups</A>.
+
+<P>As of 12 Aug 1998, the badge said it's first words: "Hello I am a
+Badge.  Do you want to play with me?" This was done by Mat Hans of HP
+Labs who output synthesized speech in the form of a .wav files using a
+program running on the badge.</P>
+</LI>
+
+<LI>Formerly: Temic TFDU6100E low voltage IR transceiver module,
+    now: Vishay Telefunken TFDU6100E low voltage IR transceiver module</A><br>
+	<UL>
+	<LI>Supports IRDA 1.1 including 4Mbit formats,</LI>
+	<LI>can run on as little as 2.7V, so it fits our 3.3V power design,</LI>
+	<LI>glueless interface to the SA-1100,</LI>
+	<LI>low power consumption,</LI>
+	<LI>relatively long range (~2m at 4Mbits/s), and</LI>
+	<LI>small size (9.7 x 4.7 x 4.0 mm), and</LI>
+	<LI>requires no metal shielding.</LI>
+	</UL></LI>
+
+
+<LI>Measurement Specialties (formerly AMP) ACH-04-08-05 3-axis accelerometer</A>. Some examples of
+applications of accelerometers.
+<br>
+	<UL>
+	<LI>low voltage operation,</LI>
+	<LI>low power consumption,</LI>
+	<LI>in lieu of the tilt switches</LI>
+	<LI>three axis all in one package - reduces parts count over planned
+	    two single axis units and provide an addition axis</LI>
+	</UL></LI>
+
+
+<LI>Analog devices ADG608 Multiplexer</LI>
+
+<LI>Farnell 265-690 - Temperature sensors - Thermistor 10K Ohm,
+    NTC (Philips 2322-640-63103)<br>
+	<UL>
+	<LI>mounted front and rear</LI>
+	<LI>this is a 10KOhm +/- 5% thermistor</LI>
+	<LI>Temperature in degrees C =  -273.16 + (3.353832*10<sup>-3</sup> +
+	2.569355*10<sup>-4</sup> * ln(R/10000) + 2.626311*10<sup>-6</sup> * ln(R/10000)<sup>2</sup>
+	+ 0.675278*10<sup>-7</sup> * ln(R/10000)<sup>3</sup>)<sup>-1</sup></LI>
+	<LI>with R being the measure resistance in Ohms</LI>
+	<LI>for example: if R=10000 Ohms, then T=25 C; if R=32560
+	Ohms, then T= 0 C</LI>
+	<LI>The front/rear mount sensors are there so we can do differential
+	    analysis of the wearer and the environment temperature. Therefore we
+	    can separate the wearer's body temperature from the environment temperature.</LI>
+	</UL>
+
+<P>Alternative for the future: Fenwall Electronics +1 508 478-6000,
+NTC surface mount end band thermistors - 100 Ohms to 1Megohm, 2-10%,
+$0.35 to $0.15 for quantities 5,00 to 100,000 [5% resistance tolerance
+at 25 degrees C]</P>
+</LI>
+
+<LI>Farnell 540-985  - Humidity sensors - (Shinyei C5-M3)<br>
+
+	<UL>
+	<LI>mount front and rear</LI>
+	<LI>See note above about concerning the wearer vs. the environment.</LI>
+	<LI>"Miniature sensor using a humidity sensitive material
+screened onto a ceramic substrate. The resistance of the the device
+varies expontentially with relative humidity. It has rapid response and
+good reproducability." Operating humidity: 90% RH (max)<br>
+Rated voltage, power (AC) 1 V rms, 0.2mW<br>
+Driving frequency (recommended) 500 Hz to 2kHz<br>
+Storage conditions (recommended) 10 degrees to 40 degree, 0-60 percent RH<br>
+Operating temperature range	0 degrees to 60 degrees<br>
+Standard humidity resistance 31K Ohm (at 25 degreees C, 60 perecent RH)<br>
+Humidity detecting accuracy +-5 percent (25 degreees C, 60 percent RH)<br>
+Temperatue dependence 0.5% RH/degree C</LI>
+</UL>
+	</Ul></LI>
+
+<LI>Farnell 179-611  - Light sensor (MPY54C569)<br>
+	<UL>
+	<LI>front mounted Light Dependent Resistor</LI>
+	</UL></LI>
+
+<LI>Panasonic <A HREF="microphone-WM60A.gif">WM60A</A><br>
+	<UL>
+	<LI>Microphone (sound capture)</LI>
+	</UL></LI>
+
+<LI>224-467 Speaker,Sub-miniature (41.T70L015H)<br>
+	<UL>
+	<LI>Sound output</LI>
+	</UL></LI>
+
+<LI>1MB of FLASH (Intel 28F800), 16 bits wide<br>
+	<UL>
+	<LI>Organization: 512x16 or 1M x 8</LI>
+	<LI>can run at 2.7V to 3.6V</LI>
+	<LI>Package: 48-lead TSOP</LI>
+	<LI>Low Power Consumption - 20mA max. active current</LI>
+	<LI>Icc-Standby 8 µA and 0.4µA in Deep power down</LI>
+	<LI>They have an technical note about designing for programing on-board flash
+            memory from JTAG.</LI>
+
+	</UL></LI>
+
+<LI>1MB of SRAM, 32 bits wide (composed of two Toshiba TC554161 chips)<br>
+	<UL>
+	<LI>Organization: 256Kx16</LI>
+	<LI>Package: FT</LI>
+	<LI>Pins: 54</LI>
+	<LI>Speed (ns): 70,85</LI>
+	<LI>Icc- Op Max (mA): 110,100</LI>
+	<LI>Icc-Standby 100 µA</LI>
+	</UL></LI>
+
+<LI>CRYSTAL-SM-3.686400MHZ (A169E)</LI>
+<LI>CRYSTAL-32.768KHz WATCH B (MC0002A)</LI>
+</UL>
+
+<H2>Features</H2>
+
+<H3>General purpose I/O</H3>
+
+<P>The SA-1100 has 28 general purpose I/O pins. These can be
+individually assigned as inputs or output. Many have alternate
+assignments (controlled by GPIO Alternate Function Register
+(GAFR)).</P>
+
+<P><A HREF="GP-bit-assigments.html">Pin assignments</A></P>
+
+<H3>PCMCIA</H3>
+
+<P>Buffering to allow both 5V and 3V PCMCIA cards to be used.  The
+PCMCIA slot conforms to version 2.X of the standard, and can support 8
+and 16 bit data transfers, except for DMA.  The StrongARM cannot
+perform a PCMCIA DMA function or implement a 32 bit CardBus
+protocol.</P>
+
+<P>Although the SA-1100 can read a bit to detect if a PCMCIA card is
+actually plugged into the socket (PSKT0CD~ ignal via the GP10 pin on
+the SA-1100), this interface does not at all support 'hot insertion'
+of PCMCIA cards.  To do so would have very much complicated the design
+and occupied a lot of space.  Therefore: <B>One has to insert or eject
+PCMCIA cards with the power off</b>, but this seems like a small thing
+for the badge.  You don't need to remove the batteries; just
+<b>pulling a jumper on JP6 is enough</b>.</P>
+
+
+
+<H3>Setting up a Badge3 board</H3>
+
+<P>The setup <A HREF="b3setup.pdf">instructions for the Badge3
+board</A>. With details of how to set the various jumpers and how to
+connect to the TAP Master for programming. 
+</P>
+
+<P>You will find in the bag with your badges another bag containing,
+parts which can (microphone and speaker) or must (certain jumpers) be
+added.</P>
+
+
+<H3>JTAG</H3>
+
+<P>JTAG 1149.1 connector which can be used for both debug and for
+in circuit programming of the FLASH memory. Initial code load will be a
+a bootstap for the StrongARM to let it get the rest of its bits via the
+IRDA interface.</P>
+
+<P>JTAG programming is done by a <A HREF="TAP-programming.html">TAP
+Master</A> card in a PC. The TAP programmer <A HREF="74lvt8980.pdf">information(PDF)</A>.</P>
+
+<P>A <A HREF=tapboard.pdf>photo of the TAP master card</A> showing the
+correct orientation of the cable that connects to the JTAG port on the
+badge.  Note also that on the other end of the cable there is a
+spacer.  It isn't visible in this picture, but it is visible in Figure
+5 of the Badge3 Setup Guide (see document noted above).  It's needed
+to make the cable connector clear the crystal on the badge.  Leave it
+attached to the cable, not the badge.  </P>
+
+<H3>Adding audio input and output devices</H3>
+
+<P><A HREF="audio-overview.jpg">Overview (100KB)</A></P>
+
+<P>To connect a speaker and mic to a badge use one of the small
+microphone units (that we used with the original badges), be sure to
+observe the polarity.  The case of the microphone (you can see a small
+trace from one of the connection points on the mic going to the case)
+needs to be connected to pin 2 of the mic connector on the badge.  Pin
+2 is indentified as the round pad.
+<A HREF="mike.jpg">Microphone picture (51KB)</A></P>
+</P>
+
+<P>Likewise, connect the black wire of the small speaker to pin 2 of
+the speaker connector on the badge (also round). Although the speaker
+probably doesn't care about polarity the microphone does.
+<A HREF="speaker.jpg">Speaker picture (67KB)</A></P>
+
+<h3>Missing features</H3>
+
+<P>The current badge is missing a "removal contact", so that you could
+know if the badge has been removed and thus de-authenticate it.</P>
+
+<H3>Powering the badge from external supply</H3>
+
+<P>The badge may be powered by using an external supply attached via
+the <A HREF="Badge01.jpg">battery jumpers as shown</A> - note the
+orientation of the strips on the connectors. The strips may be of any
+color, but they should have the same orientation.</P>
+
+<P>The <A HREF="Badge02.jpg">external power supply</A> is connected to
+the other end of the ribbon cable. Note the orientation of the color
+strip on this end.</P>
+
+<H3>Powering the badge from Batteries</H3>
+
+<P>You need create a plug to put into jumper JP7 which connects pins
+1,2,3,and 4. <A HREF="3v-jumpers.jpg">
+An example</A> of such a jumper made with a connector and
+wire looped around the relevant pins.</P>
+
+<P>Note that if you have inserted such a header you can power the
+board from an external supply by <A HREF="positive-battery.jpg">
+connecting to the battey holder's positive electrode</A> and to the
+<A HREF="reset-gnd.jpg">ground of the reset pins</A>.</P>
+
+
+<H3>Serial interface and power</H3>
+
+<P>It is possible to both power the badge and provide one or two
+serial interfaces using a new <A HREF="rs-232-and-power-board.html">serial+power board</A>.</P>
+
+<P>The serial+power board needs <A HREF="uart3mod.pdf">modifications
+to the RS-232 modules to use them with ANGEL</A>.  Angel wants to talk to
+the ARM debugger over UART3. The PDF file shows a simple mod to make
+it into UART3, as it should have been.  UART1 still comes out as
+well.</P>
+
+<P>When running the ARM tools from a notebook, you need to set the
+serial driver to "Flow control: NONE" and uncheck the box
+to disable the 16550 FIFO. You will find all these controls under the
+"Control Panel", "System", "Hardware devices", "COM1", "Port", and
+"Advanced".</P>
+
+<H3>Background reading</H3>
+
+<P> IEEE P1451 is a standard for Standard for Smart Transducer
+Interface for Sensors and Actuators. A nice introduction to smart
+sensors is "Smart Sensors" by Mark Clarkson and
+"Smart Sensor Networks of the Future" by Jay Warrior.</P>
+
+<H2>Software</H2>
+
+<P><A HREF="directio.zip">directio.zip</A> is freeware that Andreas
+Schmidt found.  It contains lots of stuff, but the point of it all is
+a single file called GIVEIO.SYS.  This is a device driver for NT 4.0
+that when called will give an application permission to successfully
+execute I/O instructions.  I/O instructions are trapped under NT 4,
+and so this device driver is needed to set permission masks
+properly. None of the tap master code will run without it.</P>
+
+<P><A HREF="instdrv.zip">instdrv.zip</A> is freeware that Mark Smith
+uploaded from the net.  It is referred to in the directio.zip
+README.TXT file.  It's a handy transient device driver utility that
+will load and start a device driver without having to permanently
+install it, or having to reboot the system after it has been
+installed.  It's fine for installing GIVEIO.SYS.  Alternatively, you
+can use the control panel and the devices program in NT version 4 to
+install GIVEIO.SYS the NT way.  If you go this route, you can dispense
+with instdrv.</P>
+
+
+<P>tap.zip - contains Mark Smith's collection of
+TAP master code to date.  Primative, but it works.  Currently it only
+runs under NT version 4 and was compiled using Microsoft Visual C++
+version 5.0.  If you are really desparate, it compiles under MS-DOS
+using Microsoft C version 6.  Sources and executables are in
+there. [Copies of the this file are available to our collaborators.]
+Here's what you get:</P>
+
+<Table border="2">
+<TR><TD>TAPLIB.C</TD><TD>This is a library of TAP master hardware level routines.  Really low
+level, and takes care of all the needs of the TI 74LVT8980 controller chip.</TD></TR>
+
+<TR><TD>TAPLIB.OBJ</TD><TD>typically linked into everything.</TD></TR>
+
+<TR><TD>ARMPIT.C</TD><TD>This is a library of ARM JTAG level routines.  They handle all the
+dependencies of the ARM JTAG scan chain, data and instructions.</TD></TR>
+
+<TR><TD>ARMPIT.OBJ</TD><TD>typically linked into everything.</TD></TR>
+
+<TR><TD>LOOPIT.C</TD><TD>This is a loopback check program to verify
+that the tap master board is working properly.  It generates random
+280 bit scan chains and loops them around, verifying as it goes.  It
+doesn't need a target device like the badge to do this, as it
+internally loops back.  If you suspect there is something wrong with
+your tap master board, this will let you know.</TD></TR>
+
+
+<TR><TD>RESET.C</TD><TD>A simple appliation that resets the tap master
+board.  Don't really need it, but there it is.</TD></TR>
+
+
+<TR><TD>GETID.C</TD><TD>This application will read and display the ID
+number encoded inside the StrongARM chip.  It's a handy way to see
+that everything is hooked up properly.  Get everything connected,
+apply power to the badge and run this program.  For these badges, you
+should see back the result 0x9108406b.  The '9' is the silicon rev, so
+it can be different, but the other numbers cannot.  If you don't see
+this pattern, then something is wrong.</TD></TR>
+
+<TR><TD>ERASEFL.C</TD><TD>This will erase the entire flash (including
+the flash bootblock from addresses 0x00000000 to 0x00001fff (the
+lowest 8K bytes of the FLASH). [PC executable is erasefl.exe]</TD></TR>
+
+
+<TR><TD>LOADFL.C</TD><TD>This will load an object file from the ARM
+tools into FLASH.  It expects that the object file will have been
+linked with the -bin -aif options, resulting in a flat code image
+preceeded by an AIF header.  It gets the starting address and code
+length out of the header, and then loads it into FLASH.  Having data
+mixed in with instructions is OK, but it can't deal with multiple
+object blocks with separate load addresses in the same object file.
+This won't happen if you use the -bin -aif options with the ARM
+linker.  You can load anywhere in flash, not just the boot block, but
+at this time the boot block is probably the most useful place to
+load.  The latest version supports better internal FLASH status
+reporting. [PC executable is loadfl.exe]
+</TD></TR>
+
+
+<TR><TD>DUMPFL.C</TD><TD>This allows you to look at what is in flash,
+it takes two arguments - the first is the starting address in HEX and
+the second is the length in decimal to be dumped.  The flash is a 16
+bit wide device, so it spits out data in 16 bit chunks.  It's fun to
+use it to see that the flash has really been erased, and that your
+code actually made it in.  You can look anywhere in the 1MB of flash,
+not just the boot block.  Don't try looking into SRAM.  That isn't
+supported yet. [PC executable is dumpfl.exe, example use "dumpfl 2000 16"]
+</TD></TR>
+</table>
+
+<P>That's what we have so far.  All of these programs are run from a
+Command Prompt window under NT4.  There are no fancy GUIs here, and the
+code is admittedly primative, but it should get you off the ground.  It
+can be improved/added to as we need.</P>
+
+<P>As of 99.01.06 there is a new <A HREF="taputils_docs.pdf">TAPMASTER</A> document and new routines.</P>
+
+<H2>Developing programs</H2>
+
+<P>This section is based on Peter Beadle's e-mail of 98.06.02,
+summarizing what he did when he visited here.</P>
+
+<H3>Using the ARM project manager to compile and link</H3>
+
+<P>The setting and flags for use when compiling a program under the
+ARM Tools for use on a SmartBadge running Angel are available as a
+<A HREF="ArmTools-Flags.pdf">PDF file</A>. {New as of 99.03.26}</P>
+
+<OL>
+<LI>unzip stockholm.zip into a convenient directory I use g:\badge3\stockholm</LI>
+
+<LI>double click on stockholm.apj, this starts the project manaager and has all
+the compiler and linker settings built in</LI>
+
+<LI>from the project manager windows select arm executable image in the display
+window and then go to the project manue and chose force build
+stockholm.apj debug</LI>
+</OL>
+
+<P>This then compiles and links the executable and leaves it in
+g:\badge3\stockholm\debug\stockholm.axf</P>
+
+<P>The axf file can then be loaded into the badge with the flash loader.</P>
+
+<P>You can also examine it in the project manager by double clicking on the arm
+executable image entry in the project manager window, then debug, then object
+and finally stockholm.axf This will disassemble the image and show you the
+sysmbol table etc.</P>
+
+<H3>Manually compiling and linking using the ARM tools</H3>
+
+<P>Use the follwoing command lines:</P>
+
+<PRE>
+armcc -Ospace -gxo  -g+ -apcs /nofp/noswst -cpu StrongARM1
+-D__TARGET_CPU_StrongARM1 -D__TARGET_FEATURE_HALFWORD -D__TARGET_ARCH_4
+-D__APCS_NOFP -D__TARGET_FEATURE_MULTIPLY -D__APCS_NOSWST -fc  -o
+G:\badge3\stockholm\Debug\mini.o -c -MD- G:\badge3\stockholm\mini.c
+
+armasm -apcs /nofp -PD "ROM_AT_ADDRESS_ZERO SETL {TRUE}" -liston -xref -apcs
+/noswst -cpu StrongARM1 -o G:\badge3\stockholm\Debug\init.o -MD-
+G:\badge3\stockholm\init.s
+
+armlink -info total -remove -entry 0 -map -libpath
+c:\arm211\lib\embedded\armlib_cn.32l -rw-base 0x08000000 -first init.o(Init)
+-aif -bin -nozeropad -o G:\badge3\stockholm\Debug\stockholm.axf
+G:\badge3\stockholm\Debug\init.o G:\badge3\stockholm\Debug\mini.o
+</PRE>
+
+
+<h3>Writing your own stand-alone programs</H3>
+<P>Echo program <A HREF="http://www.it.kth.se/~maguire/echo.zip">echo.zip</a></P>
+
+
+<h3>Use of Olicom 220 Go Card with Badge</h3>
+
+
+<P>The Olicom GoCard 2220 Ethernet PC Card is PCMCIA ethernet card
+which has 64 Kbytes buffer memory and 128 Kbytes flash memory for Card
+Information Structure (CIS).  It uses the Intel 82595TX ISA/PCMCIA
+High Integration Ethernet Controller. It is 86.5 x 54.0 x 5.0 mm in
+size and uses 0.75 Watt in 10Base-T operation and 50 mWatt in power
+save mode.
+</P>
+
+<P>Attribute Memory consists of:
+<UL>
+<li>The first 1015 bytes of Flash contain the Card Information
+Structure.</LI>
+<LI>82595TX Card Configuration Registers (CCRs): Byte 1016 is CCR0, 1018 is CCR1, 1020, is CCR2, and 1022 is
+CCR3.</LI>
+</UL>
+The remaining bytes upto 131,071 are the Flash Common Memory.</P>
+
+
+<h3>Other project(s) which use the SA-1100</h3>
+
+<UL>
+<LI>Digital's ITSY Pocket Computing Project</LI>
+
+<LI>Jan-Derk Bakker's LART. 250 MIPS under one Watt</LI>
+
+</UL>
+
+
+
+<ADDRESS>
+<A href="http://www.it.kth.se/~maguire/">G.Q.Maguire Jr.</A> (<a href="mailto:maguire@it.kth.se">maguire@it.kth.se</A>)<br>
+<!-- hhmts start -->
+Last modified: 27 February 2003
+<!-- hhmts end -->
+</ADDRESS>
+</body>

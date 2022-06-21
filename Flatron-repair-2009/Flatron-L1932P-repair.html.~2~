@@ -1,0 +1,198 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="description" CONTENT="D-Link DGS-1008D power supply">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2006 G. Q. Maguire Jr.">
+<META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+
+<TITLE>LG Flatron L1932P repair</TITLE>
+<H1>LG Flatron L1932P repair</H1>
+
+<p>In mid-August 2009 my LG Flatron L1932P display failed, the appearance was that the
+display would turn on for a few seconds, then the screen would go dark. The
+description below shows how to remove the power supply (mains to DC converter)
+in order to replace the capacitor that has failed.
+</p>
+
+<p>This page attempts to describes what I did, but only for informational
+  purposes. <em>It is only for use by those know how to repair power supplies.</em>
+</p>
+
+
+<ol>
+<li>The zeroth step was to disconnect all the external cables from the
+display. This includes the mains power -- for those who missed the
+<em>all</em> cables part of the previous sentence.</li>
+
+<li>The first step was to remove the four screws attaching the display to the pedestal.</li>
+
+<li>The next step was put a beach towel on the table and put the display
+  face down on it.<br>
+<IMG SRC="turned-over-face-down.jpg"  ALT="image of display turned face down with peadistal removed">
+</li>
+
+<li>Next remove the screw holding the back of the case to the power
+  supply/logic case (you can see it in the center of the space between the four screws that were used
+  to attach the pedestal.</li>
+
+<li>At this point it is time to remove the bezel from the monitor. Note that
+  you have push in the plastic catches - as shown in the figure. You will need
+  a sharp blade to go around the back of bezel to carefully push in the small
+  ridge that holds the bezel on.<br>
+<IMG SRC="turn-over-remove-bezel.jpg" ALT="image of the plastic catch on the lower lefthand corner of the display when placed face down on a table">. Notice that there is one plastic catch located near the power supply
+button on the lower lefthand corner (shown in the figure) and another on the lower right hand corner.</li>
+
+<li>Removing the back reveals the power and other control buttons on a small
+  circuit board attached via a cable to the power supply. You can remove this
+  button module by unscrewing the two screws, that hold it in place.<br>
+<IMG SRC="power-and-other-buttons.jpg" ALT="power supply and other control buttons on a small circuit board">
+</li>
+
+<li>The power supply is mounted on the back of the LCD panel.<br>
+<IMG SRC="power_supply_mounting.jpg" ALT="power supply mounted on the back of the LCD panel">
+</li>
+
+<li>The next step is to remove the shiny metal cover from the corner of the
+  power supply, this gives you access to the power connection to the backlight.<br>
+<IMG SRC="power_to_backlight1.jpg" ALT="connections from power supply to backlight">
+</li>
+
+<li>The image below shows the connectors on the cable to the backlight.<br>
+<IMG SRC="cable-to-backlight1.jpg" ALT="conenctors for cable to backlight">
+</li>
+
+<li>There is a similar shiny metal cover at the top of the power supply. Note
+  that the cables are in the mirror arrangement (i.e., the cable with the two
+  blue wires is to the outside of the power supply case in both cases, while
+  the conenctor with the gray and black cable is to the inside in both cases.)<br>
+<IMG SRC="cables_to_backlight2.jpg" ALT="">
+</li>
+
+
+<li>Detailed view of the connectors on the cables to the backlight from the top
+  of the power supply case.<br>
+<IMG SRC="connectors-to-cables-to-backlight2.jpg" ALT="">
+</li>
+
+<li>Next remove the tape from over the cable from logic in the power
+  supply case to LCD panel. Note how the cable exists the power supply/logic case.<br>
+<IMG SRC="cable-from-logic-b.jpg" ALT="ribbon cable from logic in the power supply case to LCD panel">
+</li>
+
+<li>The image belows shows the logic cable to the panel, after bing removed
+  from the connector.<br>
+<IMG SRC="logic-cable-to-panel.jpg" ALT="logic cable to panel">
+</li>
+
+<li>With all the cables now removed, remove the tape at the side of the
+  powersupply and logic module and turn the module towards you, it will look
+  like this:<br>
+<IMG SRC="powersupply-and-logic-module.jpg" ALT="powersupply and logic module">
+</li>
+
+<li>With the module in this position we can see the underside of the connector
+  on the cable to the panel.<br>
+<IMG SRC="underside-view-of-cable-to-panel.jpg"
+     ALT="underside view of cable to panel">
+</li>
+
+
+<li>Removing the black plastic cover reveals the mains to DC converter.<br>
+<IMG SRC="mains-to-DC-converter.jpg" ALT="mains to DC converter">
+</li>
+
+<li>An alternative view of the logic module from above showing the mains supply
+  to DC converter in the middle. Note the four screws holding the power supply
+  (mains to DC converter) into the chassis. You will have to remove these
+  screws to remove this module. Before removing this module we will take a
+  look at the suspect capacitor in the DC converter and the cables that can be
+  removed to make it easy to remove this module.<br>
+<IMG SRC="mains-supply-to-DC-converter2.jpg"
+     ALT="view of logic module from above showing the mains supply to DC converter in the middle">
+</li>
+
+<li>Closeup of view of capacitors of the DC converter. Note the slight bulge in
+  the capacitor in the middle of the picture.<br>
+<IMG SRC="closeup-of-caps2.jpg" ALT="closeup of view of capacitors of the DC converter">
+</li>
+
+<li>When view from the side we can see that this capacitor is sticking up a bit
+  higher than the capacitor above it (C204). It is also possible to see the
+  vent split apart a little.<br>
+<IMG SRC="closeup-of-caps3.jpg" ALT="closeup of view of capacitors of the DC converter">
+</li>
+
+
+<li>Take a close look at the connector for power to logic board - so that you
+  will be able to put this cable back into the connector properly when
+  reassembling the unit.<br>
+<IMG SRC="closeup-of-connector-for-power-to-logic-board.jpg"
+     ALT="closeup of connector for power to logic board">
+</li>
+
+
+<li>The other end of the power cable to the logic board connects as shown
+  below. You do <em>not</em> need to remove this cable to remove the DC converter.<br>
+<IMG SRC="connector-for-power-on-logic-board.jpg"
+     ALT="connector for power on logic board">
+</li>
+
+
+<li>Note also the connector on the logic board running to the button module.
+<IMG SRC="connector-to-button-module.jpg"
+     ALT="connector to button module">
+</li>
+</ol>
+
+<p>
+The failed capacitor was a 680 microFarad (680µF)  25V capacitor. After desoldering it from
+the board, it was clear why it was sticking up higher than the equal height
+capacitor beside it, the plastic seal was being pushed out past the crimped
+end by internal pressure. I replaced this capacitor with a new
+<a href="http://products.nichicon.co.jp/">Nichicon</a> Aluminum
+Electrolytic capacitor HE Series (UHE1E681MPD) rated at 7000 Hrs @ 105°C. Such a capacitor is
+available as (<a href="http://www.digikey.com">Digikey</a> part number 493-1554-ND).
+Their catelog price on 19 August 2009 was 0.66 each (or 10 for $4.83).</p>
+
+<p>Note when inserting the replacement capacitor to align the polarity just as
+  the capacitor that you are replacing. An advantage of taking
+  pictures of the circuit board before attempting any repair is that you can go
+  back to see how the original part was oriented.</p>
+
+<p>
+In addition to this the other capacitors in this section are:
+two 1000UF 25V, 470UF 25V, two 1000UF 16V. However, they did not need to be replaced.
+</p>
+
+<p>
+After replair, the circuit board was replaced by reversing the order of the
+steps above. The monitor works once again.
+</p>
+
+<hr>
+<h2><A NAME="Disclaimer">Offical disclaimer</A> required by KTH central administration
+<A HREF="http://www.kth.se/web/disclaimer.html">[disclaimer]</A></H2>
+
+<P LANG="se">Detta &auml;r en personlig hemsida och &aring;sikter framf&ouml;rda
+h&auml;r eller i tillhandah&aring;llna l&auml;nkar representerar
+inte KTH.</p>
+
+<P>This is a personal homepage. Opinions expressed here or implied by links
+provided, do not represent the official views of KTH.</P>
+
+<ADDRESS>
+For information contact <a href="mailto:maguire@it.kth.se?subject=homepage">maguire@it.kth.se</a><br>
+Latest update 23 September 2009<BR>
+
+&copy; 2009 <A HREF="http://www.it.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/ICT
+</ADDRESS>
+
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+</BODY>
+</HTML>

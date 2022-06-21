@@ -1,0 +1,1154 @@
+<!doctype html public \"-//W30//DTD W3 HTML 2.0//EN\">
+<html><head>
+<title>AMP Sensors Technical Manual - Accelerometer Design Objectives</title>
+<META name="KEYWORDS" CONTENT="sensors, accelerometer, acoustic pickups, active damping, actuators, copolymer, doppler, infrared, impact sensor, medical imaging, piezo polymer, piezo film, piezo cable, piezoelectric, pvdf, pyroelectric, shockwriter, transducer">
+<META name="DESCRIPTION" CONTENT="AMP is the pioneer and leading manufacturer of sensors and transducers based
+on piezoelectric polymer film and cable.  We also manufacture sensors based 
+on piezoelectric ceramic materials.
+">
+</head>
+<body bgcolor="#ffffff">
+<img src="/elements/h_sensors.gif" width=435 height=75>
+<p>
+
+
+<H2>
+<A NAME="top"></A>ACH-04-08-05 Accelerometer Design Objectives</H2>
+<UL>
+<LI>
+<A HREF="#1">Product Description and Features</A></LI>
+
+<LI>
+<A HREF="#2">Absolute Maximum Ratings, Pin Descriptions, and Environmental
+Specifications</A>&nbsp;</LI>
+
+<LI>
+<A HREF="#3">Specifications</A>&nbsp;</LI>
+
+<LI>
+<A HREF="#4">Electrical Specifications</A>&nbsp;</LI>
+
+<LI>
+<A HREF="#5">Detailed Description and Electrical Interface</A>&nbsp;</LI>
+
+<LI>
+<A HREF="#6">Temperature Transient Sensitivity; Base Strain Sensitivity</A>&nbsp;</LI>
+
+<LI>
+<A HREF="#7">IC Package</A>&nbsp;</LI>
+
+<LI>
+<A HREF="acc.html">Back to Accelerometers Page</A></LI>
+</UL>
+<HR WIDTH="100%">
+
+
+<H3>
+<A NAME="1"></A>PRODUCT DESCRIPTION&nbsp;
+</H3>
+<h4><A HREF="#2">Next Section</A> | <A HREF="#top">Back to Top</A>
+<BR><A HREF="#top"></A></h4>
+The ACH-04-08-05 shock sensor contains three piezoelectric sensing elements
+oriented to simultaneously measure acceleration in three orthogonal, linear
+axes. Internal JFET's provide for a low impedance, buffered output with
+a wide variety of possible, application specific, signal conditioning circuitry.
+The sensor responds over a broad frequency range, from below 1Hz to above
+5kHz, as a result of the integrated electronics and the damped sensing
+elements. The ACH-04-08-05 accelerometer can be used in a wide range of
+applications including motional measurement and control systems, speaker
+feedback systems, vibration switches, shipment monitor and material handling
+systems, security systems, and data loggers.
+
+<H3>
+FEATURES</H3>
+
+<UL>
+<LI>
+Fully Contained 3-Axis Accelerometer</LI>
+
+<LI>
+Low Frequency Response - 0.5Hz</LI>
+
+<LI>
+High Resonant Frequency &amp; Low Q</LI>
+
+<LI>
+Excellent Linearity</LI>
+
+<LI>
+Three Simultaneous Analog Outputs</LI>
+
+<LI>
+Low-Impedance Output</LI>
+
+<LI>
+Low Profile, Surface Mount Package</LI>
+
+<LI>
+Extremely Rugged Design</LI>
+</UL>
+<CENTER><IMG SRC="033.gif" ></CENTER>
+<P>&nbsp;
+<HR WIDTH="100%">
+<H3>
+<A NAME="2"></A><CENTER>ABSOLUTE MAXIMUM RATINGS</CENTER></H3>
+<h4><A HREF="#3">Next Section</A> | <A HREF="#1">Previous Section</A> | <A HREF="#top">Back
+to Top</A>
+<BR><A HREF="#top"></A></h4>
+
+<CENTER><TABLE BORDER BORDERCOLOR="#808080" >
+<TR>
+<TD WIDTH="336"><B><FONT SIZE=+1>Characteristics</FONT></B>&nbsp;
+</TD>
+
+<TD WIDTH="85"><CENTER><B><FONT SIZE=+1>Value</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Units</FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="336">Applied Voltage (V<SUB>DD</SUB> with respect to GND)&nbsp;
+</TD>
+
+<TD WIDTH="85"><CENTER>+28</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>V</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="336">Package Power Dissipation&nbsp;
+</TD>
+
+<TD WIDTH="85"><CENTER>100</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>mW</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="336">ESD (Mil-Std-883, Method 3015.6)&nbsp;
+</TD>
+
+<TD WIDTH="85"><CENTER>2000</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>V</CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+<BR><BR>
+
+<CENTER>
+<H3>
+PIN DESCRIPTIONS</H3></CENTER>
+
+<CENTER><TABLE BORDER BORDERCOLOR="#808080" >
+<TR>
+<TD WIDTH="80"><CENTER><B><FONT SIZE=+1>Pin No</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER><B><FONT SIZE=+1>Name</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="373"><CENTER><B><FONT SIZE=+1>Description</FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>1</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S1-Y</CENTER>
+</TD>
+
+<TD WIDTH="373">Y-Axis JFET Drain or Source&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>2</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S2-Y</CENTER>
+</TD>
+
+<TD WIDTH="373">Y-Axis JFET Source or Drain&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>3</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>CTG</CENTER>
+</TD>
+
+<TD WIDTH="373">Connect to GND&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>4</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>SGND</CENTER>
+</TD>
+
+<TD WIDTH="373">Sensor Common&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>5</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S1-X</CENTER>
+</TD>
+
+<TD WIDTH="373">X-Axis JFET Drain or Source&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>6</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S2-X</CENTER>
+</TD>
+
+<TD WIDTH="373">X-Axis JFET Source or Drain&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>7</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>RGND-X</CENTER>
+</TD>
+
+<TD WIDTH="373">Resistor GND for the X-Axis&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>8</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>GND</CENTER>
+</TD>
+
+<TD WIDTH="373">Device power - negative voltage with respect to V<SUB>DD</SUB>&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>9</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>CTG</CENTER>
+</TD>
+
+<TD WIDTH="373">Connect to GND&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>10</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>RGND-Z</CENTER>
+</TD>
+
+<TD WIDTH="373">Resistor GND for the Z-Axis&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>11</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S1-Z</CENTER>
+</TD>
+
+<TD WIDTH="373">Z-Axis JFET Drain or Source&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>12</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>D/S2-Z</CENTER>
+</TD>
+
+<TD WIDTH="373">Z-Axis JFET Source or Drain&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>13</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>CTG</CENTER>
+</TD>
+
+<TD WIDTH="373">Connect to GND&nbsp;
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="80"><CENTER>14</CENTER>
+</TD>
+
+<TD WIDTH="112"><CENTER>RGND-Y</CENTER>
+</TD>
+
+<TD WIDTH="373">Resistor GND for the Y-Axis&nbsp;
+</TD>
+</TR>
+</TABLE></CENTER>
+1. JFET is symmetrical. The DRAIN and SOURCE are interchangeable.
+<BR>&nbsp;
+
+<CENTER>
+<H3>
+ENVIRONMENTAL SPECIFICATIONS</H3></CENTER>
+
+<CENTER><TABLE BORDER BORDERCOLOR="#808080" >
+<TR>
+<TD WIDTH="264"><B><FONT SIZE=+1>Characteristics (T=25<SUP>o</SUP>C)</FONT></B>&nbsp;
+</TD>
+
+<TD WIDTH="78"><CENTER><B><FONT SIZE=+1>Symbol</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER><B><FONT SIZE=+1>Min</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Typ</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Max</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Units</FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="264">Operating Temperature<SUP>1</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="78"><CENTER>T<SUB>OP</SUB></CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>0</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>+70</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><SUP>o</SUP>C</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="264">Storage Temperature&nbsp;
+</TD>
+
+<TD WIDTH="78"><CENTER>T<SUB>S</SUB></CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-40</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>+85</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><SUP>o</SUP>C</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="264">Relative Humidity<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="78"><CENTER>RH</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>0</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>95</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>%R.H.</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="264">Maximum Shock (Any Axis)&nbsp;
+</TD>
+
+<TD WIDTH="78"><CENTER>S<SUB>MAX</SUB></CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>1,000</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>g</CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+1. Nominal sensitivity will typically change less than &plusmn;1.5 dB over
+temperature range.
+<BR>
+<BR>2. Humidity must be non-condensing.
+<P>&nbsp;
+
+<HR WIDTH="100%">
+<H3>
+<A NAME="3"></A><CENTER>SPECIFICATIONS</CENTER></H3>
+<h4><A HREF="#4">Next Section</A> | <A HREF="#2">Previous Section</A> | <A HREF="#top">Back
+to Top</A>
+<BR><A HREF="#top"></A></h4>
+
+<CENTER><TABLE BORDER BORDERCOLOR="#808080" >
+<TR>
+<TD WIDTH="252"><B><FONT SIZE=+1>Characteristics (T=25<SUP>o</SUP>C)<SUP>1</SUP></FONT></B>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER><B><FONT SIZE=+1>Symbol</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER><B><FONT SIZE=+1>Min</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER><B><FONT SIZE=+1>Typ</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Max</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER><B><FONT SIZE=+1>Units</FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">X Axis Sensitivity - Model 25<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>X25</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.35</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>1.80</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>2.25</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Y Axis Sensitivity - Model 25<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>Y25</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.35</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>1.80</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>2.25</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Z Axis Sensitivity - Model 25<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>Z25</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.00</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>1.35</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>1.70</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">X Axis Sensitivity - Model 0<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>X0</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.07</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Y Axis Sensitivity - Model 0<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>Y0</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.07</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Z Axis Sensitivity - Model 0<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>Z0</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>1.07</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mV/g</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Lower Frequency Limit (3dB Point)&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>f<SUB>L3dB</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.5</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>0.7</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>Hz</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Upper Frequency Limit (3dB Point)&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>f<SUB>U3dB</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>4,000</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>5,000</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>Hz</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Resonant Frequency&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>f<SUB>o</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>9,200</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>Hz</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Resonant Q&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>Q<SUB>R</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>10</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>Hz/Hz</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Transverse Sensitivity&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>M<SUB>T</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>15</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>%</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Base Strain Sensitivity&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.05</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>g/&micro;<IMG SRC="epsilon1.gif" ></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Temperature Transient Sensitivity&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.2</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>g/<SUP>o</SUP>C/min</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Dynamic Range&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>&plusmn;250</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>g's</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Linearity&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.1</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>1.0</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>%</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Equivalent Noise (100Hz)&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>e<SUB>100</SUB></CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.2</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>mg/<IMG SRC="sqhz.gif" ></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="252">Weight&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="54"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="78"><CENTER>0.35</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="84"><CENTER>grams</CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+1. Reference Frequency is 10 Hz.
+<BR>
+<BR>2. Assumes constant current bias, guarded Drain &amp; Source
+<P>&nbsp;
+
+<HR WIDTH="100%">
+<H3><A NAME="4"></A><CENTER>ELECTRICAL SPECIFICATIONS</CENTER></H3>
+<h4><A HREF="#5">Next Section</A> | <A HREF="#3">Previous Section</A> | <A HREF="#top">Back
+to Top</A></h4>
+<BR>
+
+<CENTER><TABLE BORDER BORDERCOLOR="#808080" >
+<TR>
+<TD WIDTH="240"><B><FONT SIZE=+1>Characteristics (T=25<SUP>o</SUP>C) <SUP>1</SUP></FONT></B>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER><B><FONT SIZE=+1>Symbol</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER><B><FONT SIZE=+1>Min</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER><B><FONT SIZE=+1>Typ</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER><B><FONT SIZE=+1>Max</FONT></B></CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER><B><FONT SIZE=+1>Units</FONT></B></CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Gate-Drain Voltage&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-30</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>V</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Gate-Source Voltage&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-30</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>V</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Gate Current&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>10</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>mA</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Power Dissipation&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>360</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>mW</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Power Derating&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>3.27</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>mW/<SUP>o</SUP>C</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Gate-Source Cut-Off Voltage&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>V<SUB>GS(OFF)</SUB></CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>-0.5</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>-1.8</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>V</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">Saturation Drain Current<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>I<SUB>DSS</SUB></CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>10</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>150</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>&micro;A</CENTER>
+</TD>
+</TR>
+
+<TR>
+<TD WIDTH="240">CS Forward Transconductance<SUP>2</SUP>&nbsp;
+</TD>
+
+<TD WIDTH="84"><CENTER>g<SUB>FS</SUB></CENTER>
+</TD>
+
+<TD WIDTH="60"><CENTER>50</CENTER>
+</TD>
+
+<TD WIDTH="66"><CENTER>-</CENTER>
+</TD>
+
+<TD WIDTH="72"><CENTER>210</CENTER>
+</TD>
+
+<TD WIDTH="102"><CENTER>&micro;S</CENTER>
+</TD>
+</TR>
+</TABLE></CENTER>
+1. JFET's similar to 2N4117. Three per unit.
+<BR>
+<BR>2. Specifications modified from standard 2N4117 JFET's.
+<BR>
+<BR><CENTER><IMG SRC="034.gif" >
+</CENTER>
+<P>&nbsp;
+
+<HR WIDTH="100%">
+<H3><A NAME="5"></A>DETAILED DESCRIPTION</H3>
+<h4>
+<A HREF="#6">Next Section</A> | <A HREF="#4">Previous Section</A> | <A HREF="#top">Back
+to Top</A></h4>
+<FONT FACE="Times New Roman">Each of the three sensing elements is a small
+cantilever beam consisting of a metal substrate with a piezoelectric polymer
+element attached to one side. Each beam is supported at one end while the
+opposite end is allowed to flex in response to acceleration. The beam flex
+strains the piezoelectric material which in turn generates a charge proportional
+to the applied acceleration.</FONT>&nbsp;
+<BR>
+<BR><IMG SRC="035.gif" >&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">The beams are oriented to sense acceleration
+in the defined X, Y, and Z axes. Note that the X and Y axes are skewed
+45<SUP>o</SUP> relative to the accelerometer's package.</FONT>&nbsp;
+<CENTER><BR><IMG SRC="036.gif" ></CENTER>
+<BR>&nbsp;
+
+<H3>
+ELECTRICAL INTERFACE</H3>
+<FONT FACE="Times New Roman">The ACH-04-08-05 contains three JFET's, one
+for each channel, which function as impedance converters easing electrical
+interface requirements. The JFET's are similar to the industry standard
+part number 2N4117. The JFET's <U>MUST</U> be biased for the accelerometer
+to function properly. There are many possible interface circuits. The JFET
+biasing circuit, used in AMP's final production test, is shown in the previous
+equivalent schematic. Two other example circuits are shown below.</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">The constant-current bias circuit is highly
+recommended since it minimizes device-to-device and temperature related
+JFET transconductance variations keeping the JFET gain nearly constant.
+It also reduces V<SUB>GS(OFF)</SUB> concerns. With the additional operational
+amplifier, the circuit has a gain of x148, a one-pole low-pass filter at
+159Hz, and a one-pole high-pass filter at 0.34Hz. The circuit's component
+values and DC reference/supply voltages can be scaled to fit many applications.</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">The resistor bias circuit positions the operating
+point in the middle of the transconductance curve again minimizing transconductance
+variations. This circuit can also be powered from a single-supply voltage
+by creating an artificial ground, VREF.</FONT>
+<P>&nbsp;
+
+<HR WIDTH="100%">
+<H3><A NAME="6"></A>TEMPERATURE TRANSIENT SENSITIVITY</H3>
+<h4><A HREF="#7">Next Section</A> | <A HREF="#5">Previous Section</A> | <A HREF="#top">Back to Top</A>
+<A HREF="#top"></A></h4>
+<FONT FACE="Times New Roman">Because of the its very low operating frequency,
+the ACH-04-08-05 exhibits high Temperature Transient Sensitivity (TTS).
+TTS is defined as the accelerometer's output response to <U>RAPID</U> temperature
+changes and is expressed in equivalent g's per degree C. This effect should
+not be confused with the ACH-04-08-05's sensitivity shift versus temperature
+which is defined at static (unchanging) temperatures and is unrelated to
+TTS. The ACH-04-08-05's TTS will manifest itself as a low frequency (DC)
+drift when the device is subjected to temperature gradients. Even small
+temperature changes can produce significant DC drift.</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">TTS results primarily from differences in
+the thermal coefficients of expansion (TCE) of the various materials in
+the accelerometer. During product development, every effort is made to
+match TCE's, however, many mismatches are unavoidable. Even small TCE mismatches
+can lead to high TTS when combined with low frequency measurement capability
+since TTS is primarily a low frequency phenomena.</FONT>&nbsp;
+<BR>
+<BR><IMG SRC="037.gif"  ALIGN=RIGHT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">Fortunately, it is easy to minimize TTS effects.
+The key is to prevent air currents, which are at various temperatures,
+from circulating around the ACH-04-08-05. These "wind currents" can be
+minimized by encasing the accelerometer in a shell. The shell can be made
+of almost anything. Successful TTS minimization shells have been made from
+plastic, paper, metal, etc. In fact, wind shields have been successfully
+integrated into the housing of the final circuit board assembly negating
+the need for additional parts. While the shell does not have to be air-tight,
+tighter seals provide better performance. Encapsulating the ACH-04-08-05
+can also provide an effective wind shield. To ensure that the ACH-04-08-05's
+housing is not compressed under the weight of the encapsulant, AMP recommends
+that a spacer be placed above the unit. Note that the best performance
+is obtained by combining a wind shell with encapsulation.</FONT>&nbsp;
+
+<H3>
+BASE STRAIN SENSITIVITY</H3>
+<FONT FACE="Times New Roman">The ACH-04-08-05 displays Base Strain Sensitivity
+(BSS) for many of the same reasons that it displays TTS; namely, low frequency
+operation and low modulus/high TCE materials. BSS is defined as the amount
+of output signal generated as a result of bending in the accelerometer's
+mounting surface and is expressed in terms of equivalent g's per input
+micro-strain, g/&micro;<IMG SRC="epsilon1.gif" >.</FONT>
+<BR>
+<BR><IMG SRC="038.gif"  ALIGN=RIGHT>
+<FONT FACE="Times New Roman">The best way to minimize BSS effects is to
+stiffen the mounting structure. 
+Stiffer mounting structures are typically
+less susceptible to bending. However, since the ACH-04-08-05 is designed
+to be attached to a circuit board, it may be difficult to stiffen the mounting
+surface. In this situation, it may be better to place the accelerometer
+at the end of a "cantilever beam", routed into the circuit board, where
+minimal strain can be coupled into the accelerometer. Mounting arrangements
+such as this are very effective for low frequency applications. However,
+they are unacceptable for high frequency measurements where the signal
+to be measured is near or above the resonant frequency of the cantilever
+beam on the circuit board. Implemenation of a cantilever beam, strain minimization
+design requires careful analysis to accurately position the cantilever
+resonance well above the frequency range of interest.</FONT>
+<P>&nbsp;
+ 
+<HR WIDTH="100%"><H3><A NAME="7"></A>IC PACKAGE</H3>
+<h4><A HREF="#6">Previous Section</A> | <A HREF="#top">Back to Top</A>
+<BR><A HREF="#top"></A></h4>
+<FONT FACE="Times New Roman">To insure proper protection against RF and
+EM interference, the outer surface of the package is conductive and electrically
+connected to the GND pin. Exercise caution when laying out PC boards to
+ensure that no uninsulated traces are located under the package. They could
+contact the package surface and be shorted to GND. It is recommended that
+all 14 pins of the package be soldered to the PC board to insure good mechanical
+coupling of acceleration, motion, and shock. Complete soldering will also
+eliminate undesirable mechanical resonances of the IC package.</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">The package is sealed to eliminate the effects
+of normal exposure to the environment and typical cleaning processes found
+in an electronic manufacturing facility. However, the package seal is not
+hermetic and exposure to acidic, basic, corrosive, or aqueous environments
+is not recommended. Because of process variations, the ACH-04-08-05 should
+be qualified through the intended production assembly processes (soldering,
+wash, etc.) before releasing to production. <B>The device is NOT IR reflow
+solderable</B>. Recommended alternative soldering processes include hand
+and hot bar soldering. Contact AMP for more detailed information.</FONT>&nbsp;
+<CENTER><BR><IMG SRC="039.gif" ></CENTER><BR><BR>
+<FONT FACE="Times New Roman">Date Code: YY = 1 or 2 digit year (ie 96 or
+6)</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">WW = 2 digit week (1 to 52)</FONT>&nbsp;
+<BR>
+<BR><FONT FACE="Times New Roman">D = 1 digit day (1 is Sunday)</FONT>&nbsp;
+<BR>&nbsp;
+<BR>&nbsp;
+<CENTER><a href="acc.html">To Accelerometers Page</a> | <a href="05.htm#top">Back to Top</a> | <a href="tblconte.html">Table of Contents</a></CENTER>
+
+<P>&nbsp;
+
+
+<hr>
+<CENTER>
+<br>
+<font size=-1>
+<a href="http://connect.ampincorporated.com" target="_top">Electronic Catalog</a> | 
+<a href="/product/product.html">Products & Industries</a> | 
+<a href="/support/support.html">Support & Feedback</a> | 
+<a href="/about/about.html">About AMP</a> | 
+<a href="/welcome.html">Welcome</a><br>
+</font size=-1>
+</CENTER>
+
+</body>
+</html>
+

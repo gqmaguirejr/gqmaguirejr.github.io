@@ -1,0 +1,439 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="description" CONTENT="smartbadge version 4">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2002 G. Q. Maguire Jr.">
+
+<TITLE>SmartBadge version 4</TITLE>
+<H1>
+SmartBadge version 4
+</H1>
+
+<P>The fourth version of the SmartBadge builds on the lessons learned
+from the three earlier iterations which have been used in classes at
+KTH (Mobile Personal Communications module of the Telecommunications
+"finger" course during Spring 1997, 1998, 1999) and University of
+Wollongong (during Summer 1997). This version was designed in late
+1999 by Dr. Mark T. Smith of HP Labs.
+</P>
+
+<P>We encourage you to use the information from these pages, but would
+ask that you site as a source:</P>
+<pre>
+Mark T. Smith and Gerald Q. Maguire Jr., SmartBadge/BadgePad version 4, 
+HP Labs and Royal Institute of Technology (KTH),
+http://web.ict.kth.se/~maguire/badge4.html, date of access yyyy-mm-dd.
+</pre>
+
+
+<P>This version is a 12 layer printed circuit board with ball grid
+array (BGA) mounted SA1110 processor and SA1111 companion chip.</P>
+
+<P>The first badge of this version ran was operational (without the SA1111
+chip) on Saturday 03-February 2001. It immediately ran the ARM Angel
+debugging environment. As of 03-July 2001 it is running Linux.</P>
+
+<P>Scan of the partially assembled first badge 
+<A HREF="badge_4_early_side1a.jpg">Front (without a SO-DIMM card)</A>,
+<A HREF="badge_4_early_side1b.jpg">Front (with 32MB SO-DIMM SDRAM in place)</A>, and
+<A HREF="badge_4_early_side2.jpg">Back</A>.
+</P>
+
+<P>Finished badge photos (from Mat Hans):
+<table>
+<TR><TD align="center"><A HREF="Badge4_side1.jpg"><img src="Badge4_side1_small.jpg"></TD>
+    <TD align="center"><A HREF="Badge4_side2.jpg"><img src="Badge4_side2_small.jpg"></TD></TR>
+<TR><TD align="center">Front</TD><TD align="center">Back</TD></TR>
+</table></P>
+
+<P>The basic system consists of a Intel StrongArm-1110 processor,
+StrongArm-1111 coprocessor, Flash, SRAM, sensors, some built-in
+communication links, a SO-DIMM socket, and both PCMCIA and Compact
+Flash interfaces.</P>
+
+<H2>Schematics</H2>
+
+<UL>
+<LI>Processor <A HREF="badge4_processor.pdf">(PDF)</A></LI>
+<LI>Coprocessor <A HREF="badge4_sa1111.pdf">(PDF)</A></LI>
+<LI>Memory <A HREF="badge4_memory.pdf">(PDF)</A></LI>
+<LI>Sensors <A HREF="badge4_sensors.pdf">(PDF)</A></LI>
+<LI>Power <A HREF="badge4_power.pdf">(PDF)</A></LI>
+</UL>
+
+
+<h2>Parts and reason for their selection</H2>
+
+<UL>
+<LI>Intel SA1110 processor and SA1111 coprocessor<br>
+	<UL>
+        <li>lots of general purpose and I/O interfaces, including
+	PCMCIA & Compact Flash,
+	a serial port (channel 2) for IrDA 1.0, UART(serial port 3), and CODEC (serial port 4)</LI>
+	<LI>low voltage operation (suitable for batteries);</LI>
+	<LI>Good power management - as we need to conserve power to
+            allow for extended battery operation;</LI>
+	<LI>sufficient processing power to do the local processing that we need; and </LI>
+	<LI>processor core is ARM based and plenty of tools exist.</LI>
+	</UL></LI>
+
+
+<LI>Audio CODEC<br>
+	<UL>
+	<LI>based on Philips UDA1341</LI>
+	<LI>CD quality stereo audio input and output</LI>
+	<LI>glueless interface to the SA-1111</LI>
+	</UL>
+</LI>
+
+<LI>low voltage IR transceiver module<br>
+	<UL>
+	<LI>Supports IRDA 1.1 including 4Mbit formats</LI>
+	<LI>can run on as little as 2.7V, so it fits our 3.3V power design</LI>
+	<LI>glueless interface to the SA-1110</LI>
+	<LI>low power consumption</LI>
+	</UL></LI>
+
+
+<LI>Measurement Specialties 
+<A HREF="http://www.msiusa.com/805spec3.pdf">
+ACH-04-08-05 3-axis accelerometer</A>
+<br>
+	<UL>
+	<LI>low voltage operation</LI>
+	<LI>low power consumption</LI>
+	<LI>three axis all in one package</LI>
+	<LI>See also TI's Application note: <A HREF="http://focus.ti.com/docs/apps/catalog/resources/appnoteabstract.jhtml?abstractName=slva040">3-V Accelerometer Featuring TLV2772</A></LI>
+	<LI>See also "<A HREF="http://www.media.mit.edu/resenv/pubs/theses/ayb-thesis.pdf">
+        An Inertial Measurement Unit for User
+	Interfaces</A>" by Ari Yosef Benbasat, MIT
+	</UL></LI>
+
+
+<LI>Sensor interfacing:
+<UL>
+    <LI>Rather than using a multiplexer (as in the earlier design) we are
+        using a Maxim (<A HREF="http://pdfserv.maxim-ic.com/arpdf/MAX395.pdf">MAX395</A>
+        8 input SPST device as both a 3 input multiplexer for
+	the X, Y, and Z accelerometer outputs and for the programmable
+	powering of the temperature, humidity, and light sensors.</LI>
+    <LI>ADC: low power (~0.3mW) Maxim
+        (<A HREF="http://pdfserv.maxim-ic.com/arpdf/MAX1110-MAX1111.pdf">MAX1110</A>) 
+         8-bit serial interfaced 8 input ADC</LI>
+</UL></LI>
+
+<LI>Farnell 265-690 - Temperature sensors (front and back) - Thermistor 10K Ohm<br>
+	<UL>
+	<LI>The front/rear mount sensors are there so we can do differential
+	    analysis of the wearer and the environment temperature. Therefore we
+	    can separate the wearer's body temperature from the environment temperature.</LI>
+        <LI><A HREF="http://www.beyschlag.de/Uploads/Datasheets/6406.pdf">NTC
+	    (Beyschlag Centralab Components (BCcomponents) (formerly Philips) 2322-640-63103)</A></LI> 
+	</UL>
+
+<P>Alternative for the future: Fenwall Electronics +1 508 478-6000,
+NTC surface mount end band thermistors - 100 Ohms to 1Megohm, 2-10%,
+$0.35 to $0.15 for quantities 5,00 to 100,000 [5% resistance tolerance
+at 25 degrees C]</P>
+</LI>
+
+<LI>Farnell 540-985  - SHINYEI HUMENT Type HPR-MQ Humidity sensors (front and back)
+(<A  HREF="http://www.shinyei.co.jp/eng/kik/sensor.htm">C5-M3</A>)<br>
+	<UL>
+	<LI>See note above about concerning the wearer vs. the environment.</LI>
+	<LI>"Miniature sensor using a humidity sensitive material
+screened onto a ceramic substrate. The resistance of the the device
+varies expontentially with relative humidity. It as rapid esponse and
+good reproducability." Operating humidity: 90% RH (max)<br>
+Rated voltage, power (AC) 1 V rms, 0.2mW<br>
+Driving frequency (recommended) 500 Hz to 2kHz<br>
+Storage conditions (recommended) 10 degrees to 40 degree, 0-60 percent RH<br>
+Operating temperature range	0 degrees to 60 degrees<br>
+Standard humidity resistance 31K Ohm (at 25 degreees C, 60 perecent RH)<br>
+Humidity detecting accuracy +-5 percent (25 degreees C, 60 percent RH)<br>
+
+Temperatue dependence 0.5% RH/degree C</LI>
+<LI><A HREF="http://www.sensorbase.com/page53.htm">page 1 of spec</A>,
+<A HREF="http://www.sensorbase.com/page54.htm">page 2 of spec</A>,
+<A HREF="http://www.sensorbase.com/page55.htm">page 3 of spec</A>,
+<A HREF="http://www.sensorbase.com/page56.htm">page 4 of spec
+(includes table of resistance vs. humidity for a number of temperatures)</A>,
+<A HREF="http://www.sensorbase.com/page57.htm">page 5 of spec
+(plot of resistance vs. humidity for a number of temperatures)</A>,
+<A HREF="http://www.sensorbase.com/page58.htm">page 6 of spec
+(plot of frequency dependence)</A></LI>
+
+<LI><A HREF="http://www.sensorbase.com/c5-m3.htm">C5-M3</A></LI>
+	</Ul>
+
+</LI>
+
+<LI>Farnell 179-611  - FUJI & CO.(Piezo Science) Light Dependant Resistor (MPY54C569)<br>
+	<UL>
+	<LI>front mounted Light Dependent Resistor</LI>
+	<LI><A HREF="http://www.fuji-piezo.com/photocon.htm">CdS
+	Photoconductive Cells, MPY Series</A></LI>
+	<LI>Peak-sensitivity wavelength: 550 nm</LI>
+	<LI>Light Resistance 10Lux 20-100k Ohm</LI>
+	<LI>Dark Resistance min 20M Ohm</LI>
+	</UL></LI>
+
+<LI>FLASH memory: 4MB of Intel 3 Volt Advanced+ Boot Block (C3)
+"StrataFlash" (28F320C3) (Intel TE28F320C3BA100), 32Mbits
+arranged as 2M x 16 bits wide.<br> Note that this chip contains a
+128-Bit Protection Register, 64 bits of which are programmed with a
+unique value at the factory. The other 64 bits can be programmed by
+the user. (See Appendix G: Protection Register Addressing, of
+<A HREF="http://www.intel.com/design/flcomp/datashts/290645.htm">
+3-Volt Advanced+ Boot Block Flash Memory</A>.)
+</LI>
+
+<LI>2MB of static RAM (SRAM), built using
+<A HREF="http://pdf.toshiba.com/taec/components/Datasheet/55v400.pdf">
+Toshiba TC55V400 FT-85</A> chips (4 Mbits arranged as 256K x 16) 32 bits
+wide; these parts come in two versions with mirror (reverse) pinouts
+and two of each type are used (two on each side of the board). Note
+that these chips only consume ~1.5 microwatts each when not
+active. (Notes: (1) Some versions of the badge have twice this amount
+of SRAM.  (2) SRAM has proved to be very useful since a kernel plus
+initial file system could fit in the SRAM and it is much faster to
+JTAG program than the FLASH.)</LI>
+
+<LI>PC100 SDRAM via SO-DIMM socket - enabling use of low cost laptop
+memory. The use of the SO-DIMM slot enables either very large amounts of
+memory or <em>user designed adaptor boards</em>. For example, a
+Kingston KVR100X64SC3/64 So-DIMM card can be used.
+</LI>
+
+</UL>
+
+<H2>Features</H2>
+
+<p>PCMCIA (connector in place) and Compact Flash (must be connected
+via an adaptor to the board)</p>
+
+<P>USB bus master support (Note: The USB connecter is attached to via
+small daughter card (USB dongle - described below), thus you can more
+flexibly position it in a case.)</P>
+
+<H3>Badge4 USB dongle</H3>
+
+<P>USB Dongle (<A HREF="usb_dongle_front.jpg">front</A>) and
+              (<A HREF="usb_dongle_back.jpg">back</A>).</P>
+
+<P>The external USB dongle is connected to jack JP11 -- USB Host
+interface via a ribbon cable. Note carefully that the connectors are
+on <em>opposite</em> sides of the cable. The dongle itself is similar
+to a USB Self Powered Hub. The dongle has a TI
+<A HREF="http://www-s.ti.com/sc/ds/sn75240.pdf">SN75240</A> transient
+voltage suppressor to provide some ESD protection and reduce the risk
+of damage to the SA1111. There is also a TI
+<A HREF="http://www-s.ti.com/sc/ds/tps2014.pdf">TPS2014</A> Power
+Distribution Switch which enables or disables the badge to supply
+power to the USB connector. The dongle has a USB series A Receptacle
+which can be used to attach it to a hub or to peripherals.</P>
+
+<P>Pin out on the USB dongle, with the USB connector at the top (as
+shown in the "front" picture above), pin 1 will be the lower lefthand
+corner of the lower row:
+<table>
+<tr><th>USB dongle pin</th><th>PJ11 pinout</th><th>Name</th><th>Purpose</th></tr>
+<TR><TD>1</TD><TD>10</TD><TD>USBH_Wakeup<br>SA1111 GPIO A3</TD><TD>not connected at the dongle</TD></TR>
+<TR><TD>2</TD><TD>8</TD><TD>5V</TD><TD>input voltage to the TPS2014</TD></TR>
+<TR><TD>3</TD><TD>6</TD><TD>Ground</TD><TD>Ground</TD></TR>
+<TR><TD>4</TD><TD>4</TD><TD>Ground</TD><TD>Ground</TD></TR>
+<TR><TD>5</TD><TD>2</TD><TD>3.3V</TD><TD>3.3V supply</TD></TR>
+
+<TR><TD>6</TD><TD>1</TD><TD>USBH_PWR_SEN</TD><TD>Connected to the Over Current (OC-) output of TPS2014</TD></TR>
+<TR><TD>7</TD><TD>3</TD><TD>USBH_PWR_CTL<br>SA1111 GPIO A4</TD><TD>Connected to the
+Enable (EN-) of TPS2014 enables/disable 5V power</TD></TR>
+<TR><TD>8</TD><TD>5</TD><TD>USBH_M<br>SA1111 USB_Minus</TD><TD>USB data signalling</TD></TR>
+<TR><TD>9</TD><TD>7</TD><TD>USBH_P<br>SA1111 USB_Plus</TD><TD>USB data signalling</TD></TR>
+<TR><TD>10</TD><TD>9</TD><TD>USBH_Detach<br>SA1111 GPIO A2</TD><TD>not connected at the dongle</TD></TR>
+</table>
+</P>
+
+<P>Badge PJ11 pinout
+<TABLE>
+<TR><TH>PJ11 pinout</TH><TH>Name</TH><TH>Purpose</TH></TR>
+<TR><TD>1</TD><TD>USBH_PWR_SEN</TD><TD>Connected to the Over Current (OC-) output of TPS2014</TD></TR>
+
+<TR><TD>2</TD><TD>3.3V</TD><TD>3.3V supply</TD></TR>
+
+<TR><TD>3</TD><TD>USBH_PWR_CTL<br>SA1111 GPIO A4</TD><TD>Connected to the
+Enable (EN-) of TPS2014 enables/disable 5V power</TD></TR>
+
+<TR><TD>4</TD><TD>Ground</TD><TD>Ground</TD></TR>
+
+<TR><TD>5</TD><TD>USBH_M<br>SA1111 USB_Minus</TD><TD>USB data signalling</TD></TR>
+
+<TR><TD>6</TD><TD>Ground</TD><TD>Ground</TD></TR>
+
+<TR><TD>7</TD><TD>USBH_P<br>SA1111 USB_Plus</TD><TD>USB data signalling</TD></TR>
+
+<TR><TD>8</TD><TD>5V</TD><TD>input voltage to the TPS2014</TD></TR>
+
+<TR><TD>9</TD><TD>USBH_Detach<br>SA1111 GPIO A2</TD><TD>not connected at the dongle</TD></TR>
+
+
+<TR><TD>10</TD><TD>USBH_Wakeup<br>SA1111 GPIO A3</TD><TD>not connected at the dongle</TD></TR>
+</table></P>
+
+
+<H2>Reset switch</H2>
+
+<P>In order to use JTAG to program the FLASH memory you must hold down
+the reset switch (a small padded alligator clamp works well for
+this).</P>
+
+<H2>Battery power</H2>
+
+<P>With an external battery pack which output 3V or less you can
+easily make a battery power supply for the badge. For example, a pair
+of rechargable 1.2 V cells in parallel attached in series to another
+parallel pair will work well.</P>
+
+<P>In order to be able to use the RS-232 serial interfaces you need to
+modify the RS-232 serial board so that you can also run it from
+battery power. The easiest method of doing this is to remove the LM317LZ
+regulator (the smaller of the two regulators on the board) and solder
+a wire from pin 20 of the serial ribbon cable connector (the wider
+cable which runs to the badge) to the middle hole where the regulator
+was - this will connect the 3.3V which the badge now provides via pin 
+20 to the MAXIM part so that it can level shift the RS-232 signals.</P>
+
+<P>Pinout of JP1 is:
+<table>
+<TR><TH>pin</TH><TH>name</TH><TH>purpose</TH></TR>
+<tr><td>1</td><td>UDC+</td><td>serial port 0 of SA1110 - which can
+only used as a USB periperal</td></tr>
+<tr><td>2</td><td>UDC-</td><td></td></tr>
+<tr><td>3</td><td>TXD_1</td><td>serial port 1</td></tr>
+<tr><td>4</td><td>RXD_1</td><td>serial port 1</td></tr>
+<tr><td>5</td><td>GND</td><td>ground</td></tr>
+<tr><td>6</td><td>UART_HS1</td><td>aka GP13 for GPIO</td></tr>
+<tr><td>7</td><td>UART_HS2</td><td>aka GP14 for GPIO</td></tr>
+<tr><td>8</td><td>GND</td><td>ground</td></tr>
+<tr><td>9</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>10</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>11</td><td>GND</td><td>ground</td></tr>
+<tr><td>12</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>13</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>14</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>15</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>16</td><td>GND</td><td>ground</td></tr>
+<tr><td>17</td><td>NC</td><td>Not Connected</td></tr>
+<tr><td>18</td><td>TXD_3</td><td>serial port 3</td></tr>
+<tr><td>19</td><td>RXD_3</td><td>serial port 3</td></tr>
+<tr><td>20</td><td>3.3V</td><td>3.3V supplied by the badge</td></tr>
+</table>
+
+<H3>JTAG</H3>
+
+<P>JTAG 1149.1 connector which can be used for both debug and for
+in circuit programming of the FLASH memory. A second JTAG interface is
+used to program the CPLD (programmable logic).</P>
+
+<P>A USB attached JTAG programmer <A HREF="usb_jtag.pdf">(PDF)</A> has
+been designed by Mark Smith. It is designed as a daughter card with a
+Texas Instruments TAP Master (74LVT8980A) which plugs into an
+ActiveWire-USB board (http://www.activewireinc.com/). This daughter
+card also provides an RS-232 interface (this could be used to provide
+the serial connection to either the ARM Angel tools or the Linux
+console).</P>
+
+<p>Mark T. Smith's <a href="tapsrc_2006-06-26.zip">source code</a> for
+controlling the TAP Master. This provides an example of how to program
+the Texas Instruments tap master controller. Note that this code was
+written to do JTAG transactions on a StrongARM SA1110 processor
+target; hence the relevant BSDL definitions are hard coded into it in
+the library source ARMPIT.C. The file "taputils_readme.pdf" within the
+ZIP file describes each of the other files.</p>
+
+<H2>Software</H2>
+
+<H3>Angel</H3>
+
+<H3>Linux</H3>
+
+<P>Using the <A HREF=badge4-audio.html>audio on the badge</A>.
+</P>
+
+<!--
+<Table border="2">
+<TR><TD>getid</TD><TD>This application will read and display the ID
+number encoded inside the StrongARM chip.  It's a handy way to see
+that everything is hooked up properly.  Get everything connected,
+apply power to the badge and run this program.  For these badges, you
+should see the result 0x9261013.</TD></TR>
+
+
+<TR><TD>erasefl</TD><TD>This will erase the entire flash.</TD></TR>
+
+<TR><TD>loadfl</TD><TD>This will load an object file from the ARM
+tools into FLASH.  It expects that the object file will have been
+linked with the -bin -aif options, resulting in a flat code image
+preceeded by an AIF header.  It gets the starting address and code
+length out of the header, and then loads it into FLASH.  Having data
+mixed in with instructions is OK, but it can't deal with multiple
+object blocks with separate load addresses in the same object file.
+This won't happen if you use the -bin -aif options with the ARM
+linker.  You can load anywhere in flash, not just the boot block, but
+at this time the boot block is probably the most useful place to
+load.</TD></TR>
+
+
+<TR><TD>dumpfl</TD><TD>This allows you to look at what is in
+flash. The flash is a 16 bit wide device, so it spits out data in 16
+bit chunks.  It's fun to use it to see that the flash has really been
+erased, and that your code actually made it in.</TD></TR>
+
+<TR><TD>unl</TD><TD>This unlocks the flash. Unless you unlock the
+flash blocks you can't erase or program the flash.</TD></TR>
+
+<TR><TD>loadsram</TD><TD>This will load an object file into SRAM. The
+code has to be linked to run in the SRAM address space.</TD></TR>
+
+<TR><TD>dumpsram</TD><TD>This allows you to look at what is in SRAM.</TD></TR>
+</table>
+-->
+
+<H3>Other projects which might be of interest</H3>
+
+<P>Don Loomis, "The TINI Specification and Developer's Guide",USB
+Addison-Wesley, 2001, ISBN 0-201-72218-6. Describes from a user's point
+of view how to use the TINI environment and board which Dallas
+Semiconductor has developed. This system utilizes a small Java system
+to make it rather easy for users to develop network attached sensors
+and adaptors. The book is quite readable and provides an excellent
+series of increasingly complex examples. This is the sort of
+book that should exist for every environment (perhaps this will serve
+as an incentive for someone to write such a book for the badge(s)).</P>
+
+<H3>Other reading</H3>
+<P>Mat Hans's 
+<A HREF="http://www.hpl.hp.com/personal/Mat_Hans/research/badge4/index.htm">
+Badge4 page</A> has links to where to get the bits for this version of
+the badge, a mailing list for uses of this version of the badge, etc.</P>
+
+<P>
+<A HREF="http://www-106.ibm.com/developerworks/library/l-embdev.html?n-l-372">
+Linux system development on an embedded device:
+Tinkering with PDAs for fun and profit 
+</A> by Anand K Santhanam and Vishal Kulkarni.</P>
+
+<ADDRESS>
+<A href="http://www.it.kth.se/~maguire/">G.Q.Maguire Jr.</A> (<a href="mailto:maguire@it.kth.se">maguire@it.kth.se</A>)<br>
+<!-- hhmts start -->
+Last modified: 27 June 2006
+<!-- hhmts end -->
+&copy; 2003 M. T. Smith, HP and <A HREF="http://www.it.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/IMIT
+</ADDRESS>
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+</body>

@@ -1,0 +1,261 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="description" CONTENT="smartbadge version 1">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2002 G. Q. Maguire Jr.">
+<META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+
+<TITLE>SmartBadge version 1</TITLE>
+<H1>
+SmartBadge version 1
+</H1>
+
+<P>"A SmartBadge is a wearable computer with an infrared data link and
+a collection of environmental sensors. It is designed to be work like
+a corporate identity badge. The SmartBadge communicates with fixed
+Badge Tranceivers using a subset of the IrDA IrLAP protocol
+stack. Every 2.3 seconds the SmartBadge broadcasts a message giving
+its identity and details of the state of its sensors.  A Badge
+Treanceiver picks up the message and forwards it to a Badge Server
+which de-encapsulates the Badge data from the IrLAP frame and forwards
+the information to a Location Server that tracks the location and
+state of Badges, Treanceivers and people." (From the lab notes for the
+course.)</P>
+
+<P>The first version of the SmartBadge has been used in classes at KTH
+(Mobile Personal Communications module of the Telecommunications
+"finger" course during Spring 1997) and University of Wollongong
+(during Summer 1997). This version was mainly designed during winter
+1997 by Dr. H. W. Peter Beadle, then of the The Institute for
+Telecommunications Research, Electrical and Computer Engineering,
+University of Wollongong, Australia in cooperation with M. T. Smith of
+HP Labs and G. Q. Maguire Jr. of KTH.
+</P>
+
+<P>This version used a 2 layer circuit board made by Mark T. Smith of
+HP Labs using a PCB milling machine.</P>
+
+<P><A HREF="badge1-front.jpg">Front</A> and <A HREF="badge1-back.jpg">Back</A> Badge views</P>
+
+<P>The basic system consists of an EEPROM programmable 20MHz 8 bit PIC
+microcontroller with A/D Converter (PIC16C74-JW) and a number of
+sensors.</P>
+
+<H2>Schematics</H2>
+
+<UL>
+<LI>not on-line</LI>
+</UL>
+
+
+<h2>Parts and reason for their selection</H2>
+
+<UL>
+<LI>
+	<UL><LI>EEPROM programmable 20MHz 8 bit PIC microcontroller with A/D Converter (PIC16C74-JW)</LI>
+        <li>lots of general purpose and I/O interfaces, an on-board
+	A/D converter with 8 multiplexed inputs, and UART</LI>
+	</UL></LI>
+
+<LI>
+        <UL>
+	<LI>low power, with power saving SLEEP mode</LI>
+	<LI>DC-20 MHz operation (fully static design) - we used a 10
+	MHz crystal osc. for the processor and a 3.6864 MHz for the UART</LI>
+	<LI>4K x 14 EEPROM - incircuit programmable</LI>
+	<LI>192 bytes of memory</LI>
+	<LI>Also available as a One Time Programmable 10 MHz part (PIC 16C740-10)</LI>
+	</UL></LI>
+
+
+<LI>Audio/noise
+	<UL>
+	<LI>Piezoelectric transducer - for noise output (77dB@30cm
+	4kHz, can handle 10V p-p (Farnell part 561-071) - replaced on
+	many by Radio Shack 273-074 speaker</LI>
+	<LI>microphone (60J42) for audio input</LI>
+        </UL></LI>
+
+
+<LI>IRDA IR transceiver module
+	<UL>
+	<LI>TEMIC TOIM3000 interface module and TFDS3000 transceiver</LI>
+	</UL></LI>
+
+
+<LI>Tilt sensors (tilt switches)
+	<UL>
+	<LI>non-mercury Asemtech CW1300-1 (Farnell part #540-614)</LI>
+	<LI>using two pairs (mounted at 90 degrees to each other) of 2 sensors</LI>
+	<LI>inexpensive (~11 SEK/each) means of generating orientation data</LI>
+	</UL></LI>
+
+<LI>Temperature sensor - Thermistor 330k Ohm
+	<UL>
+        <LI>Philips 330k Ohm @25 degrees C, NTC 5%</LI> 
+        <LI>Farnell part #265-720</LI>
+	</UL></LI>
+
+<LI>Humidity sensor (C5-M3)
+	<UL>
+	<LI>"Miniature sensor using a humidity sensitive material
+	     screened onto a ceramic substrate. The resistance of the the device
+             varies expontentially with relative humidity. It as rapid esponse and
+             good reproducability." Operating humidity: 90% RH (max)<br>
+             Rated voltage, power (AC) 1 V rms, 0.2mW<br>
+             Driving frequency (recommended) 500 Hz to 2kHz<br>
+             Storage conditions (recommended) 10 degrees to 40 degree, 0-60 percent RH<br>
+             Operating temperature range	0 degrees to 60 degrees<br>
+             Standard humidity resistance 31K Ohm (at 25 degreees C, 60 perecent RH)<br>
+             Humidity detecting accuracy +-5 percent (25 degreees C, 60 percent RH)<br>
+             Temperatue dependence 0.5% RH/degree C</LI>
+        <LI>Farnell part#540-985</LI>
+	</UL></LI>
+
+<LI>FUJI & CO.(Piezo Science) Light Dependant Resistor (MPY54C569)
+	<UL>
+	<LI>front mounted Light Dependent Resistor</LI>
+	<LI><A HREF="http://www.fuji-piezo.com/photocon.htm">CdS
+	Photoconductive Cells, MPY Series</A></LI>
+	<LI>Peak-sensitivity wavelength: 550 nm</LI>
+	<LI>Light Resistance 10Lux 20-100k Ohm</LI>
+	<LI>Dark Resistance min 20M Ohm</LI>
+	<LI>Farnell part#179-611</LI>
+	</UL></LI>
+
+<LI>3V Litium button battery - mounted in a coin battery carrier</LI>
+</UL>
+
+<H2>Software</H2>
+
+<H3>SmartBadge Programs</H3>
+
+<P>SmartBadge (Version 1.1, C for PIC 16C74A-JW @ 20MHz) (Version 1.1, C for PIC 16C74A-JW @ 19.660800MHz)</P>
+
+<UL>
+<LI>All Badge communication is at 9600 baud, 8 data bits, one start bit,
+one stop bit, no parity.</LI>
+
+<LI>On power-up the badge beeps and waits for its ID to be programmed
+across the IrDA link. When it starts up it sends a version number
+string followed by a 'P' it then attempts to read a character from the
+IrDA link. If the character is an 'i' it then tries to read four
+additional characters that are the badge address. If anything other
+than 'i' is read then the Badge sends another 'P' and waits for
+another 'i'. After the initial 'i' you have 2.3 seconds to enter each
+succeeding character. If the Badge is not programmed after 20 seconds
+it assigns a default badge ID of 0xFFFF and starts operation. The
+Programmer program in the PC Support Programs effectively programs the
+badge to a definable ID.</LI>
+
+<LI>Once the Badge ID is programmed the SmartBadge program checks the
+tranceiver jumper on the Badge board and decides if it is going to
+operate in Badge mode or Tranceiver mode.</LI>
+</UL>
+
+<H4>Badge Mode</H4>
+
+<P>Once operational the Badge polls its sensors, sends a Badge frame and
+then waits for 1 second for incoming Badge command frames. It then sleeps
+for 2.3 seconds and repeats the process. If an incoming Badge command frame
+is recognised the command is executed and the badge resets its timeout
+and waits for additional commands for 1 second. Back-to-back commands are
+thus possible without the Badge going to sleep.</P>
+
+<H4>Tranceiver Mode</H4>
+<UL>
+<LI>Turns a Badge with Daughter Card into a null-modem converting between
+IrDA physical and RS232 physical one character at a time.</LI>
+</UL>
+
+
+<P>All the badge code was developed using PICSTART-16C - a PIC development environment.</P>
+
+
+<H3>Badge Server</H3>
+
+<P>Badge Server takes IrDA IrLAP frames delivered from a Badge Tranceiver
+across the Internet. Parses the content and then forwared the data to the
+WWW based Location Server as a HTML message. The program is also capable
+of forwarding IrLAP frames data back to the Badge Tranceiver to be passed
+on to a Badge.</P>
+
+<H3>Badge Tranceiver</H3>
+
+<P>Reads badge data from the serial port of a PC (Presumably from a Badge
+running the tranceiver program) and sends it to a badge Server runing somwhere
+in the Internet. The program can also receives IrLAP format frames from
+the Internet and send them to the Badge through the serial port.</P>
+
+<H3>Locator</H3>
+
+<P>Allows a person to register with the Location Server on the Interner
+when they log on to a computer.</P>
+
+<H3>Programmer</H3>
+
+<P>Allows the Badge ID to be programmed on Badge power-up. Programming
+sequence is the character i followed by 4 bytes giving the Badge ID. You
+can also type this in from an IrDA equiped notebook (e.g. OmniBook). Repeat
+until the badge beeps at you or 20 seconds expire at which time the baged
+starts up with a broadcast address of 0xffff.</P>
+
+<H3>Fake Badge</H3>
+
+<P>Allows you to specify the Badge address, Badge Tranceiver address and
+send an update message to the Location Server as if the Badge had been
+seen by the Tranceiver.</P>
+
+<H2>Related Work</H2>
+
+<H3>SmartBadge</H3>
+
+<UL>
+<LI>Location Aware Mobile Computing Master Page - was at
+    http://www.elec.uow.edu.au/people/staff/beadle/badge/location_aware.html</LI>
+
+
+<LI>H.W.P. Beadle, G.Q. Maguire Jr., M.T. Smith, "Environment
+Aware Computing and Communication Systems", submitted to: Proc. International 
+Symposium on Wearable Computers, Cambridge, Massachusetts, October
+1997, Submitted -- but was rejected!</LI>
+
+<LI>H.W.P. Beadle, G.Q. Maguire Jr., M.T. Smith, "Smart Badge: It
+beeps, It flashes, It knows when you are hot and sweaty",
+submitted to: Proc. International Symposium on Wearable Computers, Cambridge,
+Massachusetts, October 1997, Submitted -- but was rejected!
+</LI>
+
+<LI>H.W.P. Beadle, G.Q. Maguire Jr., and M.T. Smith, Presentation
+Slides, for seminars to Institut für Technische Informatik und Kommunikationsnetze
+and Physical Electronics Laboratory, ETH Zurich April 1997.</LI>
+
+<LI>H.W.P. Beadle, B. Harper, G. Q. Maguire Jr., and J. Judge, "Location
+Aware Mobile Computing", Proc. IEEE/IEE
+International Conference on Telecommunications, (ICT&quot;97), Melbourne,
+April 1997.</LI>
+
+<LI>H.W.P. Beadle and R. Gonzalez, "A Video Coding Based Mobile
+Multimedia Terminal", Proc. Picture Coding Symposium, Melbourne, 1996,
+pp. 509-514.</LI>
+</UL>
+
+
+
+<ADDRESS>
+<A href="http://www.it.kth.se/~maguire/">G.Q.Maguire Jr.</A> (<a href="mailto:maguire@it.kth.se">maguire@it.kth.se</A>)<br>
+<!-- hhmts start -->
+Last modified: 12 February 2003
+<!-- hhmts end -->
+&copy; 2002 <A HREF="http://www.it.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/IMIT
+</ADDRESS>
+
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+
+</body>

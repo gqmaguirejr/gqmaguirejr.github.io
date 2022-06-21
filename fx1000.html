@@ -1,0 +1,122 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<HTML LANG="en-us">
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<META NAME="author"  CONTENT="Gerald Q. Maguire Jr.">
+<META NAME="description" CONTENT="NVIDIA Quadro FX 1000 cooling">
+<META HTTP-EQUIV="pragma" CONTENT="no-cache">
+<META NAME="copyright"  CONTENT="Copyright &copy; 2006 G. Q. Maguire Jr.">
+<META NAME="ROBOTS" CONTENT="NOINDEX,NOFOLLOW">
+
+<TITLE>NVIDIA Quadro FX 1000 cooling</TITLE>
+<H1>NVIDIA Quadro FX 1000 cooling</H1>
+
+<p>The fan cooling the NVIDIA Quadro FX 1000 in a Dell Precision 450
+workstation failed. This card was a Dell Part# W0663 nVidia Quadro
+FX1000 128Mb 8x AGP. It was possible to replace the fan with the
+<a href="http://www.artic-cooling.com/">Artic Cooling</a> NV Silencer 6
+(revision 2); although there is a ~1cm gap between the plastic of the
+exhaust and the exit grill. This gap could be closed by the NV
+Silencer 1 (revision 2) - which appears to be the correct version of
+the product to use. However, the local store did not have one.
+</p>
+
+<p>The excellent
+<a href="http://www.arctic-cooling.com/downloads/compatibility/height_restr_nv6_r2.pdf">drawings</a>
+from Artic Cooling of their devices - show the height clearances and physical layout
+very well. One specification which is left out is the actual position
+of the mounting pins (labled mounting holes in the drawing) which
+stick down from the cooler. When trying to decide which of their
+coolers might fit the Quadro FX 1000 it would have been helpful to
+know this. Note that this is clearly labeled in the case of the
+<a href="http://www.arctic-cooling.com/downloads/compatibility/height_restr_nv1_r2.pdf">drawings</a>
+for the NV Silencer 1 (revision 2) - which is listed as being
+appropriate for the Quadro FX 1000. Unfortunately the local shop where
+I could obtain parts did not have an NV Silencer 1 (revision 2) in
+stock, but only had a NV Silencer 1 (without any version number
+indicated). This particular device has 4 mounting screws in a square,
+rather than two on a diagonal as in the case of the FX 1000 fan which
+I was removing. It appears that the board had holes for both types of
+mountings, but since it used the two holes on a diagonal for the
+current fan and there were nice clearance marks on the board for the
+small rubber spacers which are placed on the screw posts after they
+come out the back of the board, I chose to use the NV Silencer 6
+(revision 2) board. 
+</p>
+
+<p>I would like to acknowledge the help of Daniel Rutter's "Dan's
+Data" review: <a href="http://www.dansdata.com/vgasilencer.htm">
+"Arctic Cooling VGA Silencer"</a>, Review date: 6 February 2004. Last
+updated 26 February 2006 - for its description of the Artic Colling VGA
+Silencer.</p>
+
+<h2>NVIDIA Quadro FX 1000 cooling fan</h2>
+<P><A HREF="nvidia-fan-front.jpg">Front</A> and
+<A HREF="nvidia-fan-back.jpg">Back</A> exteral views of the former
+cooling unit.</P>
+
+<p>Using a cross point 0x40 screw driver one can remove the five small
+screws from the front of the cooling unit -
+<A HREF="nvidia-front-inside.jpg">Front</A> internal view. The
+<a href="nvidia-cover-plate.jpg">cover and screws</a>.</p>
+
+<p>The power to the fan passes under a <a href="nvidia-plug2.jpg">rubber plug</a> on the side of the
+heat sink, this can be easily removed with a pair of needle nose pliers.
+After removing the rubber plug, the small fan can be easily removed, buy removing
+<a href="nvidia-three-screws.jpg">three screws</a>. However, I am not
+sure where one would find a replacement 12V DC 0.1A ~37mm fan.</p>
+
+<p>After loosing the connectors which held the heat sink to the board
+and removing this fan I used a hot air gun to heat the heatsink
+and was able to remove the heatsink from the GPU chip. The chip was
+cleaned off using a small knife.</p>
+
+<p>It was easy to attach the Artic Cooling device following the
+manufacturer's directions. It might also be worth noting that the
+mounting bracket has to be placed on the back of the card such that it
+is concave when the middle is placed against the board (i.e., the two
+ends need to stick out farther than the middle). Otherwise the rubber
+pad is not easily positioned and most importantly you don't get the
+compression force that you are trying to achieve when you tighten the
+screws.
+</p>
+
+<h2>Alternatives</h2>
+
+<ul>
+<li>It might have been possible to simply replace only the fan itself
+(see details on the fan above)</li>
+
+<li><a href="http://www.devhardware.com/forums/nvidia-video-card-6/nvidia-quadro-fx-1000-heat-sink-removal-20289.html">Others</a>
+have described removing the OEM heatsink and replace Zalman ZM80C Heat
+Sink and ZM-OP1 Fan. Note that this same page discusses using 1,1,1
+trichloroethane to clean off the GPU.</li>
+</ul>
+
+<hr>
+<h2><A NAME="Disclaimer">Offical disclaimer</A> required by KTH central administration
+<A HREF="http://www.kth.se/computer/ansvar/disclaimer.html"
+<IMG SRC="http://www.kth.se/bilder/disclaimer.gif" ALT="[disclaimer]"></A></H2>
+
+<P LANG="se">Detta &auml;r en personlig webbsida och &aring;sikter framf&ouml;rda
+h&auml;r eller i tillhandah&aring;llna l&auml;nkar representerar
+inte KTH.</p>
+
+<P>This is a personal webpage. Opinions expressed here or implied by links
+provided, do not represent the official views of KTH.</P>
+
+<ADDRESS>
+<A href="http://people.kth.se/~maguire/">G.Q.Maguire Jr.</A> (<a href="mailto:maguire@kth.se">maguire@kth.se</A>)<br>
+<!-- hhmts start -->
+Last modified: 22 January 2015
+<!-- hhmts end --><br>
+&copy; 2006,2015 <A HREF="http://people.kth.se/~maguire">G. Q. Maguire Jr.</A>, KTH/ICT/CoS
+</ADDRESS>
+
+<p>
+<a href="http://validator.w3.org/check/referer">
+<img border="0" src="valid-html401.gif" alt="Valid HTML 4.01!" height="31" width="88"></a>
+</p>
+
+</body>
+
